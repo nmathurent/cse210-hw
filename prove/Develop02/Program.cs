@@ -45,9 +45,11 @@ class Program
                     answer = Console.ReadLine();
                     if (question != "All questions have been asked!  Press Enter to continue...")
                     {
+                        // Time format extracted from the following link
+                        // https://josipmisko.com/posts/c-sharp-get-time-from-datetime
                         theCurrentTime = DateTime.Now;
                         dateString = theCurrentTime.ToShortDateString();
-                        timeString = theCurrentTime.ToString("HH:mm");
+                        timeString = theCurrentTime.ToString("HH:mm tt");
                         // Add line extracted from
                         // https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.insert?view=net-7.0
                         journal.Add(new JournalEntry() { _date = dateString, 
