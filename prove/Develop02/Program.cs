@@ -18,12 +18,13 @@ class Program
 
         string question = "";
         string answer = "";
-        string dateString = "";
         string fileName = "";
+        string dateString = "";
+        string timeString = "";
+
         DateTime theCurrentTime = DateTime.Now;
 
         // dateString = $"{monthToday}/{dayToday}/{yearToday}";
-        dateString = theCurrentTime.ToShortDateString();
         
         while (menuOption != "5")
         {
@@ -44,9 +45,15 @@ class Program
                     answer = Console.ReadLine();
                     if (question != "All questions have been asked!  Press Enter to continue...")
                     {
+                        theCurrentTime = DateTime.Now;
+                        dateString = theCurrentTime.ToShortDateString();
+                        timeString = theCurrentTime.ToString("HH:mm");
                         // Add line extracted from
                         // https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.insert?view=net-7.0
-                        journal.Add(new JournalEntry() { _date = dateString, _prompt = question, _response = answer });
+                        journal.Add(new JournalEntry() { _date = dateString, 
+                                                         _time = timeString,
+                                                         _prompt = question, 
+                                                         _response = answer });
                     }
                     break;
                 case "2":

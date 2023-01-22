@@ -11,6 +11,7 @@
     {
         // Creating the member variables of the class
         public string _date = "";
+        public string _time = "";
         public string _prompt = "";
         public string _response = "";
 
@@ -23,7 +24,7 @@
         // A method that displays the journal entry details 
         public void Display()
         {
-            Console.WriteLine($"Date: {this._date} - Prompt: {this._prompt}");
+            Console.WriteLine($"Date: {this._date} - Time: {this._time} - Prompt: {this._prompt}");
             Console.WriteLine($"{_response}");
 
         }

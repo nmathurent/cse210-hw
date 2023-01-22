@@ -53,8 +53,8 @@
                 foreach(JournalEntry indEntry in _entries)
                 {
                     // The following line is used to add text to the file
-                    outputFile.Write($"\"{indEntry._date}\",\"{indEntry._prompt}\",");
-                    outputFile.WriteLine($"\"{indEntry._response}\"");
+                    outputFile.Write($"\"{indEntry._date}\",\"{indEntry._time}\",");
+                    outputFile.WriteLine($"\"{indEntry._prompt}\",\"{indEntry._response}\"");
                 }
 
             }
@@ -75,8 +75,9 @@
                 // Add line extracted from
                 // https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.insert?view=net-7.0
                 this.Add(new JournalEntry() { _date = parts[0].Replace("\"", ""), 
-                                              _prompt = parts[1].Replace("\"", ""), 
-                                              _response = parts[2].Replace("\"", "") });
+                                              _time = parts[1].Replace("\"", ""), 
+                                              _prompt = parts[2].Replace("\"", ""), 
+                                              _response = parts[3].Replace("\"", "") });
 
             }
         }
