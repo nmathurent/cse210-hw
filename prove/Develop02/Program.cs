@@ -52,6 +52,11 @@ class Program
                 case "2":
                     journal.Display();
                     break;
+                case "3":
+                    Console.WriteLine("What is the filename? ");
+                    fileName = Console.ReadLine();
+                    journal.Load(fileName);
+                    break;
                 case "4":
                     Console.WriteLine("What is the filename? ");
                     fileName = Console.ReadLine();

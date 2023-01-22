@@ -44,7 +44,7 @@
             }
         }
 
-         // A method that save the journal to a file
+        // A method that save the journal to a file
         public void Save(string fileNameP)
         {
             using (StreamWriter outputFile = new StreamWriter(fileNameP))
@@ -53,12 +53,31 @@
                 foreach(JournalEntry indEntry in _entries)
                 {
                     // The following line is used to add text to the file
-                    outputFile.WriteLine($"Date: {indEntry._date} - Prompt: {indEntry._prompt}");
-                    outputFile.WriteLine($"{indEntry._response}");
-                    outputFile.WriteLine("");
+                    outputFile.Write($"\"{indEntry._date}\",\"{indEntry._prompt}\",");
+                    outputFile.WriteLine($"\"{indEntry._response}\"");
                 }
 
             }
         }
 
+// A method that save the journal to a file
+        public void Load(string fileNameP)
+        {
+            // The following line is used to remove all elements from the journal before loading the file
+            this._entries.Clear();
+
+            string[] lines = System.IO.File.ReadAllLines(fileNameP);
+
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(",");
+
+                // Add line extracted from
+                // https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.insert?view=net-7.0
+                this.Add(new JournalEntry() { _date = parts[0].Replace("\"", ""), 
+                                              _prompt = parts[1].Replace("\"", ""), 
+                                              _response = parts[2].Replace("\"", "") });
+
+            }
+        }
     }
