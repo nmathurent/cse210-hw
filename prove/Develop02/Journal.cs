@@ -21,17 +21,7 @@
         // A method to add and entry to the journal 
         public void Add(JournalEntry entryPar)
         {
-            // Console.WriteLine("List before adding the entry");
-            // foreach(JournalEntry indEntry in _entries)
-            // {
-            //     Console.WriteLine(indEntry._prompt);
-            // }
             _entries.Add(entryPar);
-            // Console.WriteLine("List AFTER adding the entry");
-            // foreach(JournalEntry indEntry in _entries)
-            // {
-            //     Console.WriteLine(indEntry._prompt);
-            // }
         }
 
         // A method that displays all the entries from the journal 
@@ -60,7 +50,7 @@
             }
         }
 
-// A method that save the journal to a file
+        // A method that load the journal from a file
         public void Load(string fileNameP)
         {
             // The following line is used to remove all elements from the journal before loading the file
@@ -72,7 +62,7 @@
             {
                 string[] parts = line.Split(",");
 
-                // Add line extracted from
+                // Add statement idea was extracted from the following link
                 // https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.insert?view=net-7.0
                 this.Add(new JournalEntry() { _date = parts[0].Replace("\"", ""), 
                                               _time = parts[1].Replace("\"", ""), 

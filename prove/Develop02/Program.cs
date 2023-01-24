@@ -1,5 +1,3 @@
-// System.IO is used to find the StreamWriter class
-// using System.IO; 
 using System;
 
 class Program
@@ -72,6 +70,10 @@ class Program
                     journal.Save(fileName);
                     break;
                 case "5":
+                    break;
+                default:
+                    Console.WriteLine("Invalid option. Press <Enter> to continue...");
+                    answer = Console.ReadLine();
                     break;
             }
 
