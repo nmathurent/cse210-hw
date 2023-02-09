@@ -24,10 +24,6 @@
             _wordIndex = indexInSentence;
         }
 
-        public string GetWord()
-        {
-            return _word;
-        }
         public int GetWordIndex()
         {
             return _wordIndex;
@@ -41,6 +37,8 @@
         public void Hide()
         {
             _isShown = false;
+            // https://stackoverflow.com/questions/3624332/how-do-you-remove-all-the-alphabetic-characters-from-a-string
+            this._word = Regex.Replace(_word, "[A-Za-z;,.]", "_");
         }
 
         public Boolean IsShown()
@@ -50,8 +48,6 @@
 
         public string GetRenderedText()
         {
-            // https://stackoverflow.com/questions/3624332/how-do-you-remove-all-the-alphabetic-characters-from-a-string
-            this._word = Regex.Replace(_word, "[A-Za-z]", "_");
             return this._word;
         }
        

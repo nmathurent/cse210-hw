@@ -18,9 +18,8 @@
         // Scripture constructor.
         public Scripture(Reference reference, string[] bookText, int iniVerse, int endVerse)
         {
-            
+             _reference = reference;
 
-            _reference = reference;
             for (int i = iniVerse; i <= endVerse; i++) 
             {
                 List<Word> listOfWords = new List<Word>();
@@ -32,22 +31,14 @@
             _completeText = _completeText.Remove(_completeText.Length - 2, 2);
             
 
-                // Convert the text in a List of Word
-                var words = _completeText.Split(' ', StringSplitOptions.RemoveEmptyEntries);
-                int indexInSentence = 0;
-                foreach (string wd in words) 
-                {
-                    
-                    Console.WriteLine(" Word: " + wd + " -- " + indexInSentence);
-                    
-                    _listOfWords.Add(new Word(wd, indexInSentence));
-                    indexInSentence += 1;
-                }
-                // foreach(var month in _listOfWords)
-                // {
-                //     Console.WriteLine("Word before inserting: isShown:" + month.GetIsShown()
-                //     + " word:" + month.GetWord() + " index:" + month.GetWordIndex());
-                // }
+            // Convert the text in a List of Word
+            var words = _completeText.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            int indexInSentence = 0;
+            foreach (string wd in words) 
+            {
+                _listOfWords.Add(new Word(wd, indexInSentence));
+                indexInSentence += 1;
+            }
 
         }
 
@@ -64,13 +55,12 @@
             // Choose 3 ramdom words to hide
             // https://www.geeksforgeeks.org/c-sharp-check-if-an-array-contain-the-elements-that-match-the-specified-conditions/
             totalWords += _listOfWords.Count();
-            Console.WriteLine("Words to hide BEFORE: " + randWord[0] + " - " + randWord[1] + " - " + randWord[2]);
+
             while (Array.Exists(randWord, element => element == 0)) {
 
-                if (IsCompletelyHidden()) {
-                    break;
-                }
-                Console.WriteLine("Words to hide INSIDE: " + randWord[0] + " - " + randWord[1] + " - " + randWord[2] + " - Complete :" + IsCompletelyHidden());
+                // if (IsCompletelyHidden()) {
+                //     break;
+                // }
 
                 if (randWord[0] == 0) {
                     indNextWordToHide = rand.Next(totalWords);
@@ -79,7 +69,6 @@
                         if (word.GetWordIndex() == indNextWordToHide && word.IsShown()) {
                             randWord[0] = indNextWordToHide;
                             word.Hide();
-                            word.GetRenderedText();
                         }
                         
                     }
@@ -91,7 +80,6 @@
                         if (word.GetWordIndex() == indNextWordToHide && word.IsShown()) {
                             randWord[1] = indNextWordToHide;
                             word.Hide();
-                            word.GetRenderedText();
                         }
                         
                     }
@@ -103,22 +91,16 @@
                         if (word.GetWordIndex() == indNextWordToHide && word.IsShown()) {
                             randWord[2] = indNextWordToHide;
                             word.Hide();
-                            word.GetRenderedText();
                         }
                         
                     }
                 }
-
-             }
-             Console.WriteLine("Words to hide1: " + randWord[0] + " - " + randWord[1] + " - " + randWord[2] + " Total words: " + totalWords);
-
-            foreach(var word in _listOfWords)
-                {   
-                    Console.WriteLine("Word to display: isShown:" + word.GetIsShown()
-                    + " word:" + word.GetWord() + " index:" + word.GetWordIndex());
+                if (IsCompletelyHidden()) {
+                    break;
                 }
 
-
+             }
+  
         }
 
         public void GetRenderedText()
@@ -131,7 +113,7 @@
                 Console.Write(_reference.DisplayVerseRange() + " ");
             }
             foreach(var word in _listOfWords) { 
-                Console.Write(word.GetWord() + " ");
+                Console.Write(word.GetRenderedText() + " ");
             }
             Console.WriteLine("\n");
         }

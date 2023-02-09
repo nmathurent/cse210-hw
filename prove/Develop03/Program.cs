@@ -55,6 +55,7 @@ class Program
                     Console.Write("Press enter to continue or type 'quit' to finish: ");
                     menuOption = Console.ReadLine();
                     scripture1.HideWords();
+                    scripture1.GetRenderedText();
                     if (scripture1.IsCompletelyHidden()) {
                         menuOption = "quit";
                     }
