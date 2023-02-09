@@ -12,7 +12,6 @@
         // Creating the member variables of the class
         private Reference _reference;
         private Dictionary<int, string> _verses = new Dictionary<int, string>();
-        private Dictionary<int, List<Word>> _versesSplitByWords = new Dictionary<int, List<Word>>();
         private string _completeText;
         private List<Word> _listOfWords = new List<Word>();
 
@@ -30,7 +29,7 @@
                 _verses.Add(i, bookText[i]);
                 _completeText += bookText[i] + "; ";
             }
-            _completeText = _completeText.Remove(_completeText.Length - 1, 1);
+            _completeText = _completeText.Remove(_completeText.Length - 2, 2);
             
 
                 // Convert the text in a List of Word
@@ -44,11 +43,11 @@
                     _listOfWords.Add(new Word(wd, indexInSentence));
                     indexInSentence += 1;
                 }
-                foreach(var month in _listOfWords)
-                {
-                    Console.WriteLine("Word before inserting: isShown:" + month._isShown
-                    + " word:" + month._word + " index:" + month._wordIndex);
-                }
+                // foreach(var month in _listOfWords)
+                // {
+                //     Console.WriteLine("Word before inserting: isShown:" + month.GetIsShown()
+                //     + " word:" + month.GetWord() + " index:" + month.GetWordIndex());
+                // }
 
         }
 
@@ -77,7 +76,7 @@
                     indNextWordToHide = rand.Next(totalWords);
                     foreach(var word in _listOfWords)
                     {   
-                        if (word._wordIndex == indNextWordToHide && word.IsHidden()) {
+                        if (word.GetWordIndex() == indNextWordToHide && word.IsShown()) {
                             randWord[0] = indNextWordToHide;
                             word.Hide();
                             word.GetRenderedText();
@@ -89,7 +88,7 @@
                     indNextWordToHide = rand.Next(totalWords);
                     foreach(var word in _listOfWords)
                     {   
-                        if (word._wordIndex == indNextWordToHide && word.IsHidden()) {
+                        if (word.GetWordIndex() == indNextWordToHide && word.IsShown()) {
                             randWord[1] = indNextWordToHide;
                             word.Hide();
                             word.GetRenderedText();
@@ -101,7 +100,7 @@
                     indNextWordToHide = rand.Next(totalWords);
                     foreach(var word in _listOfWords)
                     {   
-                        if (word._wordIndex == indNextWordToHide && word.IsHidden()) {
+                        if (word.GetWordIndex() == indNextWordToHide && word.IsShown()) {
                             randWord[2] = indNextWordToHide;
                             word.Hide();
                             word.GetRenderedText();
@@ -112,17 +111,11 @@
 
              }
              Console.WriteLine("Words to hide1: " + randWord[0] + " - " + randWord[1] + " - " + randWord[2] + " Total words: " + totalWords);
-            //  foreach(var word in _listOfWords)
-            //     {   
-            //         if (word._wordIndex == randWord[0] || word._wordIndex == randWord[1] || word._wordIndex == randWord[2]) {
-            //             word.Hide();
-            //         }
-                    
-            //     }
+
             foreach(var word in _listOfWords)
                 {   
-                    Console.WriteLine("Word to display: isShown:" + word._isShown
-                    + " word:" + word._word + " index:" + word._wordIndex);
+                    Console.WriteLine("Word to display: isShown:" + word.GetIsShown()
+                    + " word:" + word.GetWord() + " index:" + word.GetWordIndex());
                 }
 
 
@@ -130,16 +123,17 @@
 
         public void GetRenderedText()
         {
+            Console.Clear();
             if (_reference.GetStartVerse() == _reference.GetEndVerse()) {
                 Console.Write(_reference.DisplaySingleVerse() + " ");
             }
             else {
                 Console.Write(_reference.DisplayVerseRange() + " ");
             }
-            foreach(var word in _listOfWords) {   
-                Console.Write(word._word + " ");
+            foreach(var word in _listOfWords) { 
+                Console.Write(word.GetWord() + " ");
             }
-            Console.WriteLine();
+            Console.WriteLine("\n");
         }
 
         public Boolean IsCompletelyHidden()
@@ -148,7 +142,7 @@
 
             foreach(var word in _listOfWords)
             {   
-                if (word.IsHidden() == true) {
+                if (word.IsShown() == true) {
                     isCompletelyHidden = false;
                     break;
                 }
@@ -156,23 +150,5 @@
             }
             return isCompletelyHidden;
         }
-
-        public void DisplayScripture()
-        {
-            foreach(KeyValuePair<int, string> kvp in _verses)
-                Console.WriteLine("Key: {0}, Value: {1}", kvp.Key, kvp.Value);
-        }
-
-        public void DisplayScriptureByWords()
-        {
-            foreach(KeyValuePair<int, List<Word>> kvp in _versesSplitByWords){
-                Console.WriteLine("Key: {0}, ValuebyWord: ", kvp.Key);
-                foreach(var month in kvp.Value)
-                {
-                    Console.WriteLine("Word: " + month);
-                }
-            }
-        }
-
 
     }

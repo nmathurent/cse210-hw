@@ -11,11 +11,10 @@
     public class Word
     {
         // Creating the member variables of the class
-        public string _word;
-        public Boolean _isShown;
-        public int _wordIndex;
+        private string _word;
+        private Boolean _isShown;
+        private int _wordIndex;
 
-        private char ch1;
 
         // Reference constructor - Single Verse.
         public Word(string word, int indexInSentence)
@@ -25,12 +24,26 @@
             _wordIndex = indexInSentence;
         }
 
+        public string GetWord()
+        {
+            return _word;
+        }
+        public int GetWordIndex()
+        {
+            return _wordIndex;
+        }
+
+        public Boolean GetIsShown()
+        {
+            return _isShown;
+        }
+
         public void Hide()
         {
             _isShown = false;
         }
 
-        public Boolean IsHidden()
+        public Boolean IsShown()
         {
             return _isShown;
         }
