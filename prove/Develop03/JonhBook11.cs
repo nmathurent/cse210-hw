@@ -44,10 +44,4 @@
             return _text;
         }
 
-        // A method that displays the scripture reference - case of a single verse 
-        public void Display()
-        {
-            Console.WriteLine($"{this._book} {this._chapter}:{this._startVerse}");
-        }
-
     }

@@ -23,16 +23,25 @@
             _startVerse = 1;
             _endVerse = 5;
             _text[1] = "In those days the multitude being very great, and having nothing to eat, Jesus called his disciples unto him, and saith unto them,";
-            _text[2] = "I have compassion on the multitude, because they have now been with me three days, and have nothing to eat:";
+            _text[2] = "I have compassion on the multitude, because they have now been with me three days, and have nothing to eat";
             _text[3] = "And if I send them away fasting to their own houses, they will faint by the way: for divers of them came from far.";
             _text[4] = "And his disciples answered him, From whence can a man satisfy these men with bread here in the wilderness?";
             _text[5] = "And he asked them, How many loaves have ye? And they said, Seven.";
         }
 
-        // A method that displays the scripture reference - case of a single verse 
-        public void Display()
+        public string GetBookName()
         {
-            Console.WriteLine($"{this._book} {this._chapter}:{this._startVerse}");
+            return _book;
+        }
+
+        public int GetChapter()
+        {
+            return _chapter;
+        }
+
+        public string[] GetText()
+        {
+            return _text;
         }
 
     }

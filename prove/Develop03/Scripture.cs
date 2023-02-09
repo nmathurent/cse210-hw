@@ -24,7 +24,6 @@
             {
                 List<Word> listOfWords = new List<Word>();
 
-                Console.WriteLine(i + " - " + bookText[i]);
                 _verses.Add(i, bookText[i]);
                 _completeText += bookText[i] + "; ";
             }
@@ -58,47 +57,28 @@
 
             while (Array.Exists(randWord, element => element == 0)) {
 
-                // if (IsCompletelyHidden()) {
-                //     break;
-                // }
+                FindNextWordToHide(randWord, 0);
+                FindNextWordToHide(randWord, 1);
+                FindNextWordToHide(randWord, 2);
 
-                if (randWord[0] == 0) {
-                    indNextWordToHide = rand.Next(totalWords);
-                    foreach(var word in _listOfWords)
-                    {   
-                        if (word.GetWordIndex() == indNextWordToHide && word.IsShown()) {
-                            randWord[0] = indNextWordToHide;
-                            word.Hide();
-                        }
-                        
-                    }
-                }
-                if (randWord[1] == 0) {
-                    indNextWordToHide = rand.Next(totalWords);
-                    foreach(var word in _listOfWords)
-                    {   
-                        if (word.GetWordIndex() == indNextWordToHide && word.IsShown()) {
-                            randWord[1] = indNextWordToHide;
-                            word.Hide();
-                        }
-                        
-                    }
-                }
-                if (randWord[2] == 0) {
-                    indNextWordToHide = rand.Next(totalWords);
-                    foreach(var word in _listOfWords)
-                    {   
-                        if (word.GetWordIndex() == indNextWordToHide && word.IsShown()) {
-                            randWord[2] = indNextWordToHide;
-                            word.Hide();
-                        }
-                        
-                    }
-                }
                 if (IsCompletelyHidden()) {
                     break;
                 }
 
+             }
+
+             void FindNextWordToHide(int[] arr, int indx) {
+                if (arr[indx] == 0) {
+                    indNextWordToHide = rand.Next(totalWords);
+                    foreach(var word in _listOfWords)
+                    {   
+                        if (word.GetWordIndex() == indNextWordToHide && word.IsShown()) {
+                            arr[indx] = indNextWordToHide;
+                            word.Hide();
+                        }
+                        
+                    }
+                }
              }
   
         }

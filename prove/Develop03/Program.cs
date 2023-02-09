@@ -16,25 +16,26 @@ class Program
         // Found in https://www.geeksforgeeks.org/c-sharp-random-next-method/
         Random rand = new Random();
 
-        // Choose a ramdom number between 1 and 4 to select the book
+        // Choose a ramdom number between 1 and 4 to select a random book
         int randBook = rand.Next(4) == 0 ? 1 : rand.Next(4);
-        randBook = 1;  // borrar
+        // randBook = 4;  // borrar
 
         // Choose a ramdom number between 1 and 5 to select the initial verse
         randVerse = rand.Next(5);
         int randIniVers = randVerse == 0 ? 1 : randVerse;
-        randIniVers = 2; // borrar
+        // randIniVers = 2; // borrar
 
         // Choose a ramdom number between 1 and 5 to select the final verse
         randVerse = rand.Next(5);
         int randFinalVers = randVerse < randIniVers ? randIniVers : randVerse;
-        randFinalVers = 4; // borrar
+        // randFinalVers = 2; // borrar
 
 
             // Choose the book
             switch(randBook) 
             {
-            case 1:
+            // Take an scripture from the book of John Chapter 11
+            case 1:   
                 // Call different constructors if there is a single verse or multiple verses
                 Reference johnReference = randIniVers == randFinalVers ? new Reference(bookOfJohn.GetBookName(), 
                                                             bookOfJohn.GetChapter(), 
@@ -48,31 +49,84 @@ class Program
                                                     bookOfJohn.GetText(),
                                                     randIniVers,
                                                     randFinalVers);
-                while (menuOption != "quit")
-                {
-                    scripture1.GetRenderedText();
-                    
-                    Console.Write("Press enter to continue or type 'quit' to finish: ");
-                    menuOption = Console.ReadLine();
-                    scripture1.HideWords();
-                    scripture1.GetRenderedText();
-                    if (scripture1.IsCompletelyHidden()) {
-                        menuOption = "quit";
-                    }
-                }
+                ShowScripture(scripture1);
+                
                 break;
-            case 2:
-                // code block
+
+             // Take an scripture from the book of Luke Chapter 2
+            case 2:   
+                // Call different constructors if there is a single verse or multiple verses
+                Reference lukeReference = randIniVers == randFinalVers ? new Reference(bookOfLuke.GetBookName(), 
+                                                            bookOfLuke.GetChapter(), 
+                                                            randIniVers) : 
+                                                            new Reference(bookOfLuke.GetBookName(), 
+                                                            bookOfLuke.GetChapter(), 
+                                                            randIniVers,
+                                                            randFinalVers);
+                
+                Scripture scripture2 = new Scripture(lukeReference, 
+                                                    bookOfLuke.GetText(),
+                                                    randIniVers,
+                                                    randFinalVers);
+                ShowScripture(scripture2);
+
+                break;
+
+            // Take an scripture from the book of Mark Chapter 8
+            case 3:   
+                // Call different constructors if there is a single verse or multiple verses
+                Reference markReference = randIniVers == randFinalVers ? new Reference(bookOfMark.GetBookName(), 
+                                                            bookOfMark.GetChapter(), 
+                                                            randIniVers) : 
+                                                            new Reference(bookOfMark.GetBookName(), 
+                                                            bookOfMark.GetChapter(), 
+                                                            randIniVers,
+                                                            randFinalVers);
+                
+                Scripture scripture3 = new Scripture(markReference, 
+                                                    bookOfMark.GetText(),
+                                                    randIniVers,
+                                                    randFinalVers);
+                ShowScripture(scripture3);
+
+                break;
+
+            // Take an scripture from the book of Mark Chapter 8
+            case 4:   
+                // Call different constructors if there is a single verse or multiple verses
+                Reference matthewReference = randIniVers == randFinalVers ? new Reference(bookOfMatthew.GetBookName(), 
+                                                            bookOfMatthew.GetChapter(), 
+                                                            randIniVers) : 
+                                                            new Reference(bookOfMatthew.GetBookName(), 
+                                                            bookOfMatthew.GetChapter(), 
+                                                            randIniVers,
+                                                            randFinalVers);
+                
+                Scripture scripture4 = new Scripture(matthewReference, 
+                                                    bookOfMatthew.GetText(),
+                                                    randIniVers,
+                                                    randFinalVers);
+                ShowScripture(scripture4);
+
                 break;
             default:
                 // code block
                 break;
             }
   
-        // while (menuOption != "quit")
-        // {
-        //     Console.Write("Press enter to continue or type 'quit' to finish: ");
-        //     menuOption = Console.ReadLine();
-        // }
+        void ShowScripture(Scripture scrip) {
+                while (menuOption != "quit")
+                {
+                    scrip.GetRenderedText();
+                    
+                    Console.Write("Press enter to continue or type 'quit' to finish: ");
+                    menuOption = Console.ReadLine();
+                    scrip.HideWords();
+                    scrip.GetRenderedText();
+                    if (scrip.IsCompletelyHidden()) {
+                        menuOption = "quit";
+                    }
+                }
+        }
     }
 }

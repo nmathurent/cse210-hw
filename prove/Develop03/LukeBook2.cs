@@ -29,10 +29,19 @@
             _text[5] = "To be taxed with Mary his espoused wife, being great with child.";
         }
 
-        // A method that displays the scripture reference - case of a single verse 
-        public void Display()
+        public string GetBookName()
         {
-            Console.WriteLine($"{this._book} {this._chapter}:{this._startVerse}");
+            return _book;
+        }
+
+        public int GetChapter()
+        {
+            return _chapter;
+        }
+
+        public string[] GetText()
+        {
+            return _text;
         }
 
     }

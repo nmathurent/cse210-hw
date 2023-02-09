@@ -29,10 +29,19 @@
             _text[5] = "And whoso shall receive one such little child in my name receiveth me.";
         }
 
-        // A method that displays the scripture reference - case of a single verse 
-        public void Display()
+        public string GetBookName()
         {
-            Console.WriteLine($"{this._book} {this._chapter}:{this._startVerse}");
+            return _book;
+        }
+
+        public int GetChapter()
+        {
+            return _chapter;
+        }
+
+        public string[] GetText()
+        {
+            return _text;
         }
 
     }
