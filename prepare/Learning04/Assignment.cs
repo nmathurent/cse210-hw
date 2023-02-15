@@ -7,6 +7,10 @@ public class Assignment
     private string _studentName;
     private string _topic;
 
+    public string GetStudentName() {
+        return _studentName;
+    }
+    
     // Constructor that has two parameters, one for the student name and one for the topic.
     public Assignment(string studentName, string topic)
     {
