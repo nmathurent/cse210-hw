@@ -1,6 +1,6 @@
-// Encapsulation Learning Activity    Week 05
+// Inheritance Learning Activity    Week 07
 // Author : Nelson Mathurent
-// Date:    Jan 30, 2023
+// Date:    Feb 14, 2023
 
 public class Assignment
 {
@@ -14,7 +14,7 @@ public class Assignment
         _topic = topic;
     }
 
-    // Returns the fraction in the form 3/4
+    // Returns the student's name and the topic
     public string GetSummary()
     {
         return $"{_studentName} - {_topic}";
