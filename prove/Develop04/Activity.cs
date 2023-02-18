@@ -8,8 +8,8 @@ public class Activity
     private string _description;
     private int _duration;
 
-    public string GetActivityName() {
-        return _activityName;
+    public int GetDuration() {
+        return _duration;
     }
     
     // Constructor that has two parameters, one for the activity name and one for the description.

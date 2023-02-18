@@ -21,6 +21,7 @@ class Program
                 case "1":
                     BreathingActivity bActivity = new BreathingActivity("Breathing", "This activity will help you relax by walking your through breathing in and out slowly. Clear your mind and focus on your breathing.");
                     bActivity.DisplayStartingMessage();
+                    bActivity.RunBreathingActivity();
                     bActivity.DisplayEndingMessage();
                     break;
                 case "2":
