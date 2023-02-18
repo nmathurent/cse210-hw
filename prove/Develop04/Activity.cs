@@ -25,8 +25,11 @@ public class Activity
         Console.Clear();
         Console.WriteLine($"Welcome to the {_activityName} activity.\n");
         Console.WriteLine($"{_description}\n");
-        Console.WriteLine("How long, in seconds, would you like for your session? ");
+        Console.Write("How long, in seconds, would you like for your session? ");
         _duration = Int32.Parse(Console.ReadLine());
+        Console.Clear();
+        Console.WriteLine("Get Ready...");
+        PausingShowingSpinner();
     }
 
 
