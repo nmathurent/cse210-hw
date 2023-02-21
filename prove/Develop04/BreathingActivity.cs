@@ -25,26 +25,14 @@ public class BreathingActivity : Activity
         {
             Console.WriteLine("");
             Console.Write($"{_message1}");
-            DisplaySeconds(4);
+            this.PausingShowingAnimation(4);
             Console.WriteLine("");
             Console.Write($"{_message2}");
-            DisplaySeconds(6);
+            this.PausingShowingAnimation(6);
             currentTime = DateTime.Now;
             Console.WriteLine("");
         }
     }
 
-    // Method to run the breathing activity
-    public void DisplaySeconds(int numberOfSeconds)
-    {
-        
-            for (int i = numberOfSeconds; i > 0; i--) 
-            {
-                Console.Write(i.ToString());
-                Thread.Sleep(1000);
-                Console.Write("\b \b"); // Erase the number character
-            }
-
-    }
 }
 
