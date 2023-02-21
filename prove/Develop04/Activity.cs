@@ -73,4 +73,17 @@ public class Activity
             Console.Write("\b \b"); // Erase the / character
         }
     }
+
+    // Method to run the breathing activity
+    public void PausingShowingAnimation(int numberOfSeconds)
+    {
+        
+            for (int i = numberOfSeconds; i > 0; i--) 
+            {
+                Console.Write(i.ToString());
+                Thread.Sleep(1000);
+                Console.Write("\b \b"); // Erase the number character
+            }
+
+    }
 }
