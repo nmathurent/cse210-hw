@@ -86,4 +86,40 @@ public class Activity
             }
 
     }
+
+    // Returns a random prompt fron the list of prompts
+    public string GetRandomPrompt(List<string> prompts, List<string> promptSelected,
+                                  out List<string> promptsOut, out List<string> promptSelectedOut)
+    {
+        // Instantiate random number generator
+        // Found in https://www.geeksforgeeks.org/c-sharp-random-next-method/
+        Random rand = new Random();
+        string prompt;
+
+        // Choose a ramdom number 
+        int randPrompt = rand.Next(prompts.Count);
+        prompt = prompts[randPrompt];
+        foreach (var item in promptSelected)
+        {
+            Console.WriteLine(item); 
+        }
+        // Next Loop is used to check if the prompt was already selected
+        while (promptSelected[randPrompt] == "Y") {
+
+                randPrompt = rand.Next(prompts.Count);
+                prompt = prompts[randPrompt];
+                // If all prompts were already selected, unselected them all to use them again
+                if (promptSelected.Contains("N") == false) {
+                   for (int i = 0; i < promptSelected.Count; i++) {
+                        promptSelected[i] = "N";
+                    }
+                }
+        }
+        promptSelected[randPrompt] = "Y";
+        promptsOut = prompts;
+        promptSelectedOut = promptSelected;
+
+        return prompt;
+    }
+
 }

@@ -33,53 +33,59 @@ public class ListingActivity : Activity
 
         while (currentTime < futureTime)
         {
-            AskForListingItems();
-            listItemsCount += 1;
+            // If the user entered a text then count it
+            listItemsCount += AskForListingItems() ?  1 :  0;
             currentTime = DateTime.Now;
         }
         Console.Write($"\nYou listed {listItemsCount} items!");
     }
 
-    public void AskForListingItems()
+    public Boolean AskForListingItems()
     {
+        string text;
          Console.Write("> ");
-         Console.ReadLine();
+         text = Console.ReadLine();
+         Console.WriteLine($"{text.Length}");
+         return text.Length != 0;
     }
 
     // Method to display the prompt
     public void DisplayPrompt()
     {
+        string promptToShow;
+        promptToShow = base.GetRandomPrompt(_prompts, _promptSelected, out _prompts, out _promptSelected);
+
         Console.WriteLine("List as many responses you can to the following prompt:");
-        Console.WriteLine($"\n--- {GetRandomPrompt()} ---");
+        Console.WriteLine($"\n--- {promptToShow} ---");
         Console.Write("You may begin in: ");
         this.PausingShowingAnimation(5); 
     }
 
     // Returns a random prompt fron the list of prompts
-    public string GetRandomPrompt()
-    {
-        // Instantiate random number generator
-        // Found in https://www.geeksforgeeks.org/c-sharp-random-next-method/
-        Random rand = new Random();
-        string prompt;
+    // public string GetRandomPrompt()
+    // {
+    //     // Instantiate random number generator
+    //     // Found in https://www.geeksforgeeks.org/c-sharp-random-next-method/
+    //     Random rand = new Random();
+    //     string prompt;
 
-        // Choose a ramdom number 
-        int randPrompt = rand.Next(_prompts.Count);
-        prompt = _prompts[randPrompt];
-        // Next Loop is used to check if the prompt was already selected
-        while (_promptSelected[randPrompt] == "Y") {
+    //     // Choose a ramdom number 
+    //     int randPrompt = rand.Next(_prompts.Count);
+    //     prompt = _prompts[randPrompt];
+    //     // Next Loop is used to check if the prompt was already selected
+    //     while (_promptSelected[randPrompt] == "Y") {
 
-                randPrompt = rand.Next(_prompts.Count);
-                prompt = _prompts[randPrompt];
-                // If all prompts were already selected, unselected them all to use them again
-                if (_promptSelected.Contains("N") == false) {
-                   for (int i = 0; i < _promptSelected.Count; i++) {
-                        _promptSelected[i] = "N";
-                    }
-                }
-        }
-        _promptSelected[randPrompt] = "Y";
-        return prompt;
-    }
+    //             randPrompt = rand.Next(_prompts.Count);
+    //             prompt = _prompts[randPrompt];
+    //             // If all prompts were already selected, unselected them all to use them again
+    //             if (_promptSelected.Contains("N") == false) {
+    //                for (int i = 0; i < _promptSelected.Count; i++) {
+    //                     _promptSelected[i] = "N";
+    //                 }
+    //             }
+    //     }
+    //     _promptSelected[randPrompt] = "Y";
+    //     return prompt;
+    // }
 
 }

@@ -30,11 +30,9 @@ public class ReflectingActivity : Activity
     // Method to run the reflecting activity
     public void RunReflectingActivity()
     {
-        DateTime startTime = DateTime.Now;
-        DateTime futureTime = startTime.AddSeconds(this.GetDuration());
-
+        DateTime futureTime = DateTime.Now;
         DateTime currentTime = DateTime.Now;
-        
+
         // Run the reflecting activity for the duration in seconds specified by the user
         DisplayPrompt();
         Console.ReadLine();
@@ -43,6 +41,7 @@ public class ReflectingActivity : Activity
         this.PausingShowingAnimation(5);
         Console.Clear();
         currentTime = DateTime.Now;
+        futureTime = currentTime.AddSeconds(this.GetDuration());
 
         while (currentTime < futureTime)
         {
@@ -54,38 +53,41 @@ public class ReflectingActivity : Activity
     // Method to display the prompt
     public void DisplayPrompt()
     {
+         string promptToShow;
+         promptToShow = base.GetRandomPrompt(_prompts, _promptSelected, out _prompts, out _promptSelected);
+
          Console.WriteLine("Consider the following prompt:");
-         Console.WriteLine($"\n--- {GetRandomPrompt()} ---");
+         Console.WriteLine($"\n--- {promptToShow} ---");
          Console.WriteLine("\nWhen you have something in mind, press enter to continue.");
          
     }
 
     // Returns a random prompt fron the list of prompts
-    public string GetRandomPrompt()
-    {
-        // Instantiate random number generator
-        // Found in https://www.geeksforgeeks.org/c-sharp-random-next-method/
-        Random rand = new Random();
-        string prompt;
+    // public string GetRandomPrompt()
+    // {
+    //     // Instantiate random number generator
+    //     // Found in https://www.geeksforgeeks.org/c-sharp-random-next-method/
+    //     Random rand = new Random();
+    //     string prompt;
 
-        // Choose a ramdom number 
-        int randPrompt = rand.Next(_prompts.Count);
-        prompt = _prompts[randPrompt];
-        // Next Loop is used to check if the prompt was already selected
-        while (_promptSelected[randPrompt] == "Y") {
+    //     // Choose a ramdom number 
+    //     int randPrompt = rand.Next(_prompts.Count);
+    //     prompt = _prompts[randPrompt];
+    //     // Next Loop is used to check if the prompt was already selected
+    //     while (_promptSelected[randPrompt] == "Y") {
 
-                randPrompt = rand.Next(_prompts.Count);
-                prompt = _prompts[randPrompt];
-                // If all prompts were already selected, unselected them all to use them again
-                if (_promptSelected.Contains("N") == false) {
-                   for (int i = 0; i < _promptSelected.Count; i++) {
-                        _promptSelected[i] = "N";
-                    }
-                }
-        }
-        _promptSelected[randPrompt] = "Y";
-        return prompt;
-    }
+    //             randPrompt = rand.Next(_prompts.Count);
+    //             prompt = _prompts[randPrompt];
+    //             // If all prompts were already selected, unselected them all to use them again
+    //             if (_promptSelected.Contains("N") == false) {
+    //                for (int i = 0; i < _promptSelected.Count; i++) {
+    //                     _promptSelected[i] = "N";
+    //                 }
+    //             }
+    //     }
+    //     _promptSelected[randPrompt] = "Y";
+    //     return prompt;
+    // }
 
     // Method to display the prompt
     public void DisplayQuestion()
