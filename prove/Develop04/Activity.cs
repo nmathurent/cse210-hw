@@ -22,13 +22,19 @@ public class Activity
     // Method to display the starting message
     public void DisplayStartingMessage()
     {
+        Boolean isNumerical = false;
+
         Console.Clear();
         Console.WriteLine($"Welcome to the {_activityName} activity.\n");
         Console.WriteLine($"{_description}\n");
-        Console.Write("How long, in seconds, would you like for your session? ");
-        _duration = Int32.Parse(Console.ReadLine());
+         
+        // Validate the user enter a numeric value
+        while (!isNumerical) {
+            Console.Write("How long, in seconds, would you like for your session? ");  
+            isNumerical = int.TryParse(Console.ReadLine(), out _duration); 
+        }
         Console.Clear();
-        Console.WriteLine("Get Ready...");
+        Console.WriteLine($"Get Ready...");
         PausingShowingSpinner();
     }
 

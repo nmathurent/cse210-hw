@@ -61,31 +61,4 @@ public class ListingActivity : Activity
         this.PausingShowingAnimation(5); 
     }
 
-    // Returns a random prompt fron the list of prompts
-    // public string GetRandomPrompt()
-    // {
-    //     // Instantiate random number generator
-    //     // Found in https://www.geeksforgeeks.org/c-sharp-random-next-method/
-    //     Random rand = new Random();
-    //     string prompt;
-
-    //     // Choose a ramdom number 
-    //     int randPrompt = rand.Next(_prompts.Count);
-    //     prompt = _prompts[randPrompt];
-    //     // Next Loop is used to check if the prompt was already selected
-    //     while (_promptSelected[randPrompt] == "Y") {
-
-    //             randPrompt = rand.Next(_prompts.Count);
-    //             prompt = _prompts[randPrompt];
-    //             // If all prompts were already selected, unselected them all to use them again
-    //             if (_promptSelected.Contains("N") == false) {
-    //                for (int i = 0; i < _promptSelected.Count; i++) {
-    //                     _promptSelected[i] = "N";
-    //                 }
-    //             }
-    //     }
-    //     _promptSelected[randPrompt] = "Y";
-    //     return prompt;
-    // }
-
 }
