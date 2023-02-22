@@ -34,6 +34,7 @@ public class ReflectingActivity : Activity
         DateTime futureTime = startTime.AddSeconds(this.GetDuration());
 
         DateTime currentTime = DateTime.Now;
+        
         // Run the reflecting activity for the duration in seconds specified by the user
         DisplayPrompt();
         Console.ReadLine();
