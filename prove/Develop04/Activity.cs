@@ -28,7 +28,7 @@ public class Activity
         Console.WriteLine($"Welcome to the {_activityName} activity.\n");
         Console.WriteLine($"{_description}\n");
          
-        // Validate the user enter a numeric value
+        // Validate the user enter a  numeric value
         while (!isNumerical) {
             Console.Write("How long, in seconds, would you like for your session? ");  
             isNumerical = int.TryParse(Console.ReadLine(), out _duration); 
