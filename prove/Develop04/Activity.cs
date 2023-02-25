@@ -105,10 +105,7 @@ public class Activity
         // Choose a ramdom number 
         int randPrompt = rand.Next(prompts.Count);
         prompt = prompts[randPrompt];
-        foreach (var item in promptSelected)
-        {
-            Console.WriteLine(item); 
-        }
+
         // Next Loop is used to check if the prompt was already selected
         while (promptSelected[randPrompt] == "Y") {
 

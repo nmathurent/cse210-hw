@@ -45,7 +45,6 @@ public class ListingActivity : Activity
         string text;
          Console.Write("> ");
          text = Console.ReadLine();
-         Console.WriteLine($"{text.Length}");
          return text.Length != 0;
     }
 
