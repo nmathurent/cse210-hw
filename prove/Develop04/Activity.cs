@@ -53,12 +53,6 @@ public class Activity
     {
         DateTime startTime = DateTime.Now;
         DateTime futureTime = startTime.AddSeconds(5);
-        // string dateFormat = "MM/dd/yyyy hh:mm:ss";
-        // Console.WriteLine("Original date: {0} ({1:N0} ticks)\n",
-        //                 startTime.ToString(dateFormat), startTime.Ticks);
-        // Console.WriteLine("Original date: {0} ({1:N0} ticks)\n",
-        //                 futureTime.ToString(dateFormat), futureTime.Ticks);
-        //Thread.Sleep(3000);
 
         DateTime currentTime = DateTime.Now;
         while (currentTime < futureTime)
