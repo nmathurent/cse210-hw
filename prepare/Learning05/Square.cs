@@ -12,7 +12,7 @@ public class Square: Shape
         _side = side;
     }
 
-    // Method to run the reflecting activity
+    // Method to calculate the area
     public override double GetArea()
     {
         return _side * _side;

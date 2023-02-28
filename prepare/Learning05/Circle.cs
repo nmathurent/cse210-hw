@@ -6,14 +6,14 @@ public class Circle: Shape
 {
     private float _radius;
     
-    // Constructor that has two parameters, the activity name and the description.
+    // Constructor that has two parameters, the color name and the radius.
     public Circle(string color, float radius): base(color)
     {
         _radius = radius;
 
     }
 
-    // Method to run the reflecting activity
+    // Method to calculate the area
     public override double GetArea()
     {
         return Math.PI * (_radius * _radius);

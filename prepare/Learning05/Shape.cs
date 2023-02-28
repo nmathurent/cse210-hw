@@ -6,23 +6,24 @@ public class Shape
 {
     private string _color;
     
-    // Constructor that has two parameters, the activity name and the description.
+    // Constructor that has one parameter, the color.
     public Shape(string color)
     {
         _color = color;
     }
 
-    // Method to run the reflecting activity
+    // Method to get the color
     public string GetColor()
     {
         return _color;
     }
 
+    // Method to set the color
     public void SetColor(string color)
     {
         _color = color;
     }
-    // Method to display the prompt
+    // Method to calculate the area
     public virtual double GetArea()
     {
          return -1;

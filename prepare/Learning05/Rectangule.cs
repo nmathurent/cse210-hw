@@ -7,14 +7,14 @@ public class Rectangule: Shape
     private int _length;
     private int _width;
     
-    // Constructor that has two parameters, the activity name and the description.
+    // Constructor that has three parameters, the color, the length and the width.
     public Rectangule(string color, int length, int width): base(color)
     {
         _length = length;
         _width = width;
     }
 
-    // Method to run the reflecting activity
+    // Method to calculate the area
     public override double GetArea()
     {
         return _length * _width;
