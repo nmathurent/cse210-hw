@@ -6,6 +6,8 @@ class Program
     {
         string optionSel = "";
 
+        ProcessGoals runProcess = new ProcessGoals();
+
         while (optionSel != "6"){
             Console.Clear();
             Console.WriteLine("Menu options:");
@@ -21,10 +23,10 @@ class Program
             switch (optionSel)
             {
                 case "1":
-                   
+                    runProcess.AddNewGoal();
                     break;
                 case "2":
-                   
+                   runProcess.DisplayGoals();
                     break;
                 case "3":
                     

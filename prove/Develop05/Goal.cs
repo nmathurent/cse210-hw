@@ -37,7 +37,7 @@ public class Goal
         _goalPoints = goalPoints;
     } 
 
-    // Constructor that has two parameters, one for the activity name and one for the description.
+    // Constructor 
     public Goal(string goalType, string goalName, string goalDescription, int goalPoints)
     {
         _goalType = goalType;
@@ -48,6 +48,10 @@ public class Goal
 
     public virtual int GetEarnedPoints() {
         return 0;
+    }
+
+    public void DisplayGoal() {
+        Console.WriteLine($"{_goalType} {_goalName} {_goalDescription} {_goalPoints}");
     }
 
 }
