@@ -62,8 +62,20 @@ public class ProcessGoals
             }
         }
         Console.WriteLine($"{typeOfGoalDesc} {goalName} {goalDesc} {goalPoints}");
-        SimpleGoal goal = new SimpleGoal(typeOfGoalDesc, goalName, goalDesc, goalPoints );
-        _goalList.Add(goal);
+        switch (typeOfGoal)
+        {
+                case "1":
+                    _goalList.Add(new SimpleGoal(typeOfGoalDesc, goalName, goalDesc, goalPoints ));
+                    break;
+                case "2":
+                    _goalList.Add(new EternalGoal(typeOfGoalDesc, goalName, goalDesc, goalPoints ));
+                    break;
+                case "3":
+                    typeOfGoalDesc = "ChecklistGoal";
+                    break;
+        }
+        // SimpleGoal goal = new SimpleGoal(typeOfGoalDesc, goalName, goalDesc, goalPoints );
+        // _goalList.Add(goal);
     }
 
     public void ListGoals() {
@@ -95,6 +107,7 @@ public class ProcessGoals
             isNumerical = int.TryParse(Console.ReadLine(), out goalNumber); 
         }
         numberOfPointsEarned = _goalList[goalNumber - 1].RecordEvent();
+        Console.WriteLine($"Type of goal: {_goalList[goalNumber - 1].GetGoalType()} index {goalNumber - 1}" );
         _currentScore += numberOfPointsEarned;
         Console.WriteLine($"Congratulations! You have earned {numberOfPointsEarned} points!" );
         Console.WriteLine($"You now have {_currentScore} points.\n" );

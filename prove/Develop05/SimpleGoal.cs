@@ -25,9 +25,6 @@ public class SimpleGoal : Goal
         return $"[{goalSelected}] {this.GetGoalName()} ({this.GetGoalDescription()})";
     }
 
-    public override int GetEarnedPoints() {
-        return this.GetGoalPoints();
-    }
 
     public override Boolean IsComplete() {
         // if (this.GetGoalType() == "SimpleGoal" && this._goalCompleted) {
@@ -38,6 +35,7 @@ public class SimpleGoal : Goal
     }
 
     public override int RecordEvent() {
+        Console.WriteLine($"Simple Goal:  {this.GetGoalType()} ==> this.GetGoalPoints()");
         if (this.IsComplete()) {
             return 0;
         } else {

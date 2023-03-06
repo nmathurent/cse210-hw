@@ -46,10 +46,6 @@ public class Goal
         _goalPoints = goalPoints;
     }
 
-    public virtual int GetEarnedPoints() {
-        return 0;
-    }
-
     public virtual string DisplayGoal() {
         return $"{_goalType} {_goalName} {_goalDescription} {_goalPoints}";
     }
@@ -59,6 +55,7 @@ public class Goal
     }
 
     public virtual int RecordEvent() {
+        Console.WriteLine($"Basic Goal:  {this.GetGoalType()} ==> this.GetGoalPoints()");
         return 0;
     }
 }
