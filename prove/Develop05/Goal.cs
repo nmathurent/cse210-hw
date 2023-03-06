@@ -57,4 +57,8 @@ public class Goal
     public virtual int RecordEvent() {
         return 0;
     }
+
+    public virtual string GetStringRepresentation() {
+        return "";
+    }
 }

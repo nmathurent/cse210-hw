@@ -49,5 +49,9 @@ public class CheckListGoal : Goal
             return _numberCompleted == _numberOfTimes ? this.GetGoalPoints() + this._extraBonus:this.GetGoalPoints();
         }
     }
+
+    public override string GetStringRepresentation() {
+        return $"SimpleGoal:{this.GetGoalName()},{this.GetGoalDescription()},{this.GetGoalPoints()},{this._extraBonus},{this._numberOfTimes},{this._numberCompleted}";
+    }
 }
 

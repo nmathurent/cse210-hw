@@ -27,5 +27,9 @@ public class EternalGoal : Goal
             return this.GetGoalPoints();
         }
     }
+
+    public override string GetStringRepresentation() {
+        return $"SimpleGoal:{this.GetGoalName()},{this.GetGoalDescription()},{this.GetGoalPoints()}";
+    }
 }
 

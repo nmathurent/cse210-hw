@@ -1,3 +1,4 @@
+using System.IO;
 // Eternal Quest Program    Week 09-10
 // Author : Nelson Mathurent
 // Date:    Mar 01, 2023
@@ -118,5 +119,23 @@ public class ProcessGoals
         Console.WriteLine($"Congratulations! You have earned {numberOfPointsEarned} points!" );
         Console.WriteLine($"You now have {_currentScore} points.\n" );
     }
+
+    public void SaveGoals(){
+        string fileName = "myFile.txt";
+
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            // Writing curren score to the file
+            outputFile.WriteLine($"{this._currentScore}");
+    
+            // Writing goals to the file
+            foreach (Goal goal in _goalList)
+            {
+                outputFile.WriteLine($"{goal.GetStringRepresentation()}");
+                Console.WriteLine($"{goal.GetStringRepresentation()}");
+            }
+        }
+    }
+
 }
 

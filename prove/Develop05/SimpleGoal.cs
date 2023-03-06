@@ -38,5 +38,9 @@ public class SimpleGoal : Goal
             return this.GetGoalPoints();
         }
     }
+
+    public override string GetStringRepresentation() {
+        return $"SimpleGoal:{this.GetGoalName()},{this.GetGoalDescription()},{this.GetGoalPoints()},{this._goalCompleted}";
+    }
 }
 

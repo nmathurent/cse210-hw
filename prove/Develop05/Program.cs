@@ -29,7 +29,7 @@ class Program
                     runProcess.ListGoals();
                     break;
                 case "3":
-                    // Save section
+                    runProcess.SaveGoals();
                     break;
                 case "4":
                     // Load section
