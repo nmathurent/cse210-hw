@@ -19,12 +19,31 @@ public class SimpleGoal : Goal
         _goalCompleted = false;
     }
 
-    public string DisplayGoal(Boolean selected) {
-        return $"{this.GetGoalName()} ({this.GetGoalDescription()})";
+    public override string DisplayGoal() {
+        string goalSelected;
+        goalSelected = this.IsComplete() ? "X": "";
+        return $"[{goalSelected}] {this.GetGoalName()} ({this.GetGoalDescription()})";
     }
 
     public override int GetEarnedPoints() {
         return this.GetGoalPoints();
+    }
+
+    public override Boolean IsComplete() {
+        // if (this.GetGoalType() == "SimpleGoal" && this._goalCompleted) {
+        //     return true;
+        // } 
+        // return false;
+        return _goalCompleted;
+    }
+
+    public override int RecordEvent() {
+        if (this.IsComplete()) {
+            return 0;
+        } else {
+            _goalCompleted = true;
+            return this.GetGoalPoints();
+        }
     }
 }
 

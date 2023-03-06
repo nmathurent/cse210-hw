@@ -9,7 +9,7 @@ class Program
         ProcessGoals runProcess = new ProcessGoals();
 
         while (optionSel != "6"){
-            Console.Clear();
+            //Console.Clear();
             Console.WriteLine("Menu options:");
             Console.WriteLine("   1. Create New Goal");
             Console.WriteLine("   2. List Goals");
@@ -19,17 +19,22 @@ class Program
             Console.WriteLine("   6. Quit");
             Console.Write("Select a choice from the menu: ");
             optionSel = Console.ReadLine();
-
+            Console.WriteLine($"\nOption selected: {optionSel}");
             switch (optionSel)
             {
                 case "1":
                     runProcess.AddNewGoal();
                     break;
                 case "2":
-                   runProcess.DisplayGoals();
+                   Console.WriteLine("Display goals");
+                   runProcess.ListGoals();
                     break;
                 case "3":
                     
+                    break;
+                case "5":
+                   Console.WriteLine("Display goals");
+                   runProcess.RecordEvent();
                     break;
             }
         }

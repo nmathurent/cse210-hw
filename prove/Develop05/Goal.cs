@@ -50,8 +50,15 @@ public class Goal
         return 0;
     }
 
-    public void DisplayGoal() {
-        Console.WriteLine($"{_goalType} {_goalName} {_goalDescription} {_goalPoints}");
+    public virtual string DisplayGoal() {
+        return $"{_goalType} {_goalName} {_goalDescription} {_goalPoints}";
     }
 
+    public virtual Boolean IsComplete() {
+        return false;
+    }
+
+    public virtual int RecordEvent() {
+        return 0;
+    }
 }

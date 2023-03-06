@@ -5,13 +5,13 @@
 public class ProcessGoals
 {
     private List<Goal> _goalList = new List<Goal>();
-    private int _totalScore;
+    private int _currentScore = 0;
 
     public int GetTotalScore() {
-        return _totalScore;
+        return _currentScore;
     }
-    public void GetTotalScore(int totalScore) {
-        _totalScore = totalScore;
+    public void SetTotalScore(int currentScore) {
+        _currentScore = currentScore;
     }
 
     public void AddNewGoal() {
@@ -66,12 +66,38 @@ public class ProcessGoals
         _goalList.Add(goal);
     }
 
-    public void DisplayGoals() {
+    public void ListGoals() {
+        int goalCount = 0;
+        Console.WriteLine("The goals are:");
         foreach (Goal goal in _goalList)
         {
-            Console.WriteLine($"Goal: {goal}" );
-            goal.DisplayGoal();
+            goalCount += 1;
+            Console.WriteLine($"{goalCount}. {goal.DisplayGoal()}" );
         }
+    }
+
+    public void RecordEvent() {
+        int goalCount = 0;
+        int goalNumber = 0;
+        int numberOfPointsEarned = 0;
+        Boolean isNumerical = false;
+
+        Console.WriteLine("The goals are:");
+        foreach (Goal goal in _goalList)
+        {
+            goalCount += 1;
+            Console.WriteLine($"{goalCount}. {goal.GetGoalName()}" );
+        }
+        // Validate the user enter a  numeric value
+        isNumerical = false;
+        while (!isNumerical) {
+            Console.Write("Which goal did you accomplish? ");  
+            isNumerical = int.TryParse(Console.ReadLine(), out goalNumber); 
+        }
+        numberOfPointsEarned = _goalList[goalNumber - 1].RecordEvent();
+        _currentScore += numberOfPointsEarned;
+        Console.WriteLine($"Congratulations! You have earned {numberOfPointsEarned} points!" );
+        Console.WriteLine($"You now have {_currentScore} points.\n" );
     }
 }
 
