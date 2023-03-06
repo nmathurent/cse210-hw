@@ -20,7 +20,8 @@ public class ProcessGoals
         string goalName;
         string goalDesc;
         int goalPoints = 0;
-        int numberOfTimes;
+        int numberOfTimes = 0;
+        int extraBonus = 0;
         Boolean isNumerical = false;
 
         Console.WriteLine("The types of Goals are:");
@@ -60,6 +61,12 @@ public class ProcessGoals
                 Console.Write("How many times does this goal need to be accomplished for a bonus? ");  
                 isNumerical = int.TryParse(Console.ReadLine(), out numberOfTimes); 
             }
+            // Validate the user enter a  numeric value
+            isNumerical = false;
+            while (!isNumerical) {
+                Console.Write("What is the bonus for accomplishing it that many times? ");  
+                isNumerical = int.TryParse(Console.ReadLine(), out extraBonus); 
+            }
         }
         Console.WriteLine($"{typeOfGoalDesc} {goalName} {goalDesc} {goalPoints}");
         switch (typeOfGoal)
@@ -71,7 +78,7 @@ public class ProcessGoals
                     _goalList.Add(new EternalGoal(typeOfGoalDesc, goalName, goalDesc, goalPoints ));
                     break;
                 case "3":
-                    typeOfGoalDesc = "ChecklistGoal";
+                    _goalList.Add(new CheckListGoal(typeOfGoalDesc, goalName, goalDesc, goalPoints, numberOfTimes, extraBonus ));
                     break;
         }
         // SimpleGoal goal = new SimpleGoal(typeOfGoalDesc, goalName, goalDesc, goalPoints );
@@ -107,7 +114,6 @@ public class ProcessGoals
             isNumerical = int.TryParse(Console.ReadLine(), out goalNumber); 
         }
         numberOfPointsEarned = _goalList[goalNumber - 1].RecordEvent();
-        Console.WriteLine($"Type of goal: {_goalList[goalNumber - 1].GetGoalType()} index {goalNumber - 1}" );
         _currentScore += numberOfPointsEarned;
         Console.WriteLine($"Congratulations! You have earned {numberOfPointsEarned} points!" );
         Console.WriteLine($"You now have {_currentScore} points.\n" );

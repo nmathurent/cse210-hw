@@ -26,15 +26,16 @@ class Program
                     runProcess.AddNewGoal();
                     break;
                 case "2":
-                   Console.WriteLine("Display goals");
-                   runProcess.ListGoals();
+                    runProcess.ListGoals();
                     break;
                 case "3":
-                    
+                    // Save section
+                    break;
+                case "4":
+                    // Load section
                     break;
                 case "5":
-                   Console.WriteLine("Display goals");
-                   runProcess.RecordEvent();
+                    runProcess.RecordEvent();
                     break;
             }
         }

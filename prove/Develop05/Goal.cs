@@ -55,7 +55,6 @@ public class Goal
     }
 
     public virtual int RecordEvent() {
-        Console.WriteLine($"Basic Goal:  {this.GetGoalType()} ==> this.GetGoalPoints()");
         return 0;
     }
 }

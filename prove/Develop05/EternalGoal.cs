@@ -11,7 +11,7 @@ public class EternalGoal : Goal
 
     public override string DisplayGoal() {
         string goalSelected;
-        goalSelected = this.IsComplete() ? "X": "";
+        goalSelected = this.IsComplete() ? "X": " ";
         return $"[{goalSelected}] {this.GetGoalName()} ({this.GetGoalDescription()})";
     }
 
@@ -21,7 +21,6 @@ public class EternalGoal : Goal
     }
 
     public override int RecordEvent() {
-        Console.WriteLine($"Eternal Goal:  {this.GetGoalType()} ==> this.GetGoalPoints()");
         if (this.IsComplete()) {
             return 0;
         } else {

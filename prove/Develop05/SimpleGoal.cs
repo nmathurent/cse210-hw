@@ -21,21 +21,16 @@ public class SimpleGoal : Goal
 
     public override string DisplayGoal() {
         string goalSelected;
-        goalSelected = this.IsComplete() ? "X": "";
+        goalSelected = this.IsComplete() ? "X": " ";
         return $"[{goalSelected}] {this.GetGoalName()} ({this.GetGoalDescription()})";
     }
 
 
     public override Boolean IsComplete() {
-        // if (this.GetGoalType() == "SimpleGoal" && this._goalCompleted) {
-        //     return true;
-        // } 
-        // return false;
         return _goalCompleted;
     }
 
     public override int RecordEvent() {
-        Console.WriteLine($"Simple Goal:  {this.GetGoalType()} ==> this.GetGoalPoints()");
         if (this.IsComplete()) {
             return 0;
         } else {
