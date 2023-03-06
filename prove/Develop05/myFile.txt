@@ -1,0 +1,3 @@
+40
+SimpleGoal:,description simple,10,True
+SimpleGoal:eternal,eternal desc,30
