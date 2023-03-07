@@ -1,0 +1,4 @@
+400
+SimpleGoal:simple,simple desc 30,30,True
+SimpleGoal:simple,simple desc 20,20,False
+SimpleGoal:simple,simple desc 370,370,True

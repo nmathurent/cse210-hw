@@ -10,6 +10,7 @@ class Program
 
         while (optionSel != "6"){
             //Console.Clear();
+            runProcess.DisplayUserScore();
             Console.WriteLine("Menu options:");
             Console.WriteLine("   1. Create New Goal");
             Console.WriteLine("   2. List Goals");
@@ -32,7 +33,7 @@ class Program
                     runProcess.SaveGoals();
                     break;
                 case "4":
-                    // Load section
+                    runProcess.LoadGoals();
                     break;
                 case "5":
                     runProcess.RecordEvent();

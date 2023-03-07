@@ -199,5 +199,11 @@ public class ProcessGoals
         }
     }
 
+    public void DisplayUserScore(){
+
+        Console.WriteLine($"\nYou have {this._currentScore} points.\n");  
+ 
+    }
+
 }
 
