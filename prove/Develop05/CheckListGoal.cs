@@ -21,6 +21,12 @@ public class CheckListGoal : Goal
     public void SetExtraBonus(int extraBonus) {
         _extraBonus = extraBonus;
     }
+    public int GetNumberCompleted() {
+        return _numberCompleted;
+    }
+    public void SetNumberCompleted(int numberCompleted) {
+        _numberCompleted = numberCompleted;
+    }
 
     // Constructor that has two parameters, the activity name and the description.
     public CheckListGoal(string goalType, string goalName, string goalDescription, int goalPoints, int numberOfTimes, int extraBonus): base(goalType, goalName, goalDescription,goalPoints)

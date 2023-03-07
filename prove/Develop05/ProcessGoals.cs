@@ -121,7 +121,7 @@ public class ProcessGoals
     }
 
     public void SaveGoals(){
-        string fileName = "myFile.txt";
+        string fileName = RequestFileName();
 
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
@@ -134,6 +134,68 @@ public class ProcessGoals
                 outputFile.WriteLine($"{goal.GetStringRepresentation()}");
                 Console.WriteLine($"{goal.GetStringRepresentation()}");
             }
+        }
+    }
+
+    public void LoadGoals(){
+        string fileName = RequestFileName();
+        int    lineNo   = 0;
+
+        // Remove all goals from the list
+        _goalList.Clear();
+
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+
+        foreach (string line in lines)
+        {
+            lineNo += 1;
+            if (lineNo == 1) {
+                _currentScore = int.Parse(line);
+            } else {
+                _goalList.Add(CreateGoal(line));
+            }
+        }
+    }
+
+    public string RequestFileName(){
+        string fileName = "";
+        // Validate the filename is entered by the user and it is not leaved blank
+        while (fileName == "") {
+            Console.Write("What is the filename for the goal file? ");  
+            fileName = Console.ReadLine(); 
+        }
+        return fileName;
+    }
+
+    public Goal CreateGoal(string line){
+        // Following line is used to extract the Type of Goal from the line
+        string typeOfGoal = line.Substring(0, line.IndexOf(":"));
+            
+        // Split each line of the file in an arry of strings
+        string[] parts = line.Split(",");
+
+        string goalName = parts[0].Substring(parts[0].IndexOf(":"));
+        string goalDesc = parts[1];
+        int    goalPoints = int.Parse(parts[2]);
+        switch (typeOfGoal)
+        {
+            case "SimpleGoal":
+                Boolean   goalCompleted = Boolean.Parse(parts[3]);
+                SimpleGoal goalS = new SimpleGoal(typeOfGoal, goalName, goalDesc, goalPoints);
+                goalS.SetGoalCompleted(goalCompleted);
+                return goalS;
+            case "EternalGoal":
+                EternalGoal goalE = new EternalGoal(typeOfGoal, goalName, goalDesc, goalPoints);
+                return goalE;
+            case "ChecklistGoal":
+                int    extraBonus    = int.Parse(parts[3]);
+                int    numberOfTimes = int.Parse(parts[4]);
+                int    numberCompleted = int.Parse(parts[5]);
+                CheckListGoal goalC = new CheckListGoal(typeOfGoal, goalName, goalDesc, goalPoints, numberOfTimes, extraBonus);
+                goalC.SetNumberCompleted(numberCompleted);
+                return goalC;
+            default:
+                return new Goal(typeOfGoal, goalName, goalDesc, goalPoints);;
         }
     }
 

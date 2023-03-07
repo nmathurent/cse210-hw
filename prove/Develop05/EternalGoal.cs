@@ -29,7 +29,7 @@ public class EternalGoal : Goal
     }
 
     public override string GetStringRepresentation() {
-        return $"SimpleGoal:{this.GetGoalName()},{this.GetGoalDescription()},{this.GetGoalPoints()}";
+        return $"EternalGoal:{this.GetGoalName()},{this.GetGoalDescription()},{this.GetGoalPoints()}";
     }
 }
 

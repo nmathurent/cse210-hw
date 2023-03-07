@@ -1,3 +1,4 @@
-40
-SimpleGoal:,description simple,10,True
-SimpleGoal:eternal,eternal desc,30
+0
+SimpleGoal:simple,simple desc,10,False
+EternalGoal:eternal,eternal desc,30
+CheckListGoal:check,checklist desc,40,200,3,0
