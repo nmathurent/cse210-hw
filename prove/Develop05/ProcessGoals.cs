@@ -30,8 +30,11 @@ public class ProcessGoals
         Console.WriteLine("   2. Eternal Goal");
         Console.WriteLine("   3. Checklist Goal");
         Console.WriteLine("   4. Negative Goal");
-        Console.Write("Which type of goal would you like to create? ");
-        typeOfGoal = Console.ReadLine();
+        typeOfGoal = "0";
+        while (!(typeOfGoal == "1" || typeOfGoal == "2" || typeOfGoal == "3" || typeOfGoal == "4")) {
+                Console.Write("Which type of goal would you like to create? ");  
+                typeOfGoal = Console.ReadLine(); 
+        }
 
         switch (typeOfGoal)
         {
@@ -73,7 +76,7 @@ public class ProcessGoals
                 isNumerical = int.TryParse(Console.ReadLine(), out extraBonus); 
             }
         }
-        Console.WriteLine($"{typeOfGoalDesc} {goalName} {goalDesc} {goalPoints}");
+
         switch (typeOfGoal)
         {
                 case "1":
@@ -89,8 +92,7 @@ public class ProcessGoals
                     _goalList.Add(new NegativeGoal(typeOfGoalDesc, goalName, goalDesc, goalPoints ));
                     break;
         }
-        // SimpleGoal goal = new SimpleGoal(typeOfGoalDesc, goalName, goalDesc, goalPoints );
-        // _goalList.Add(goal);
+
     }
 
     public void ListGoals() {
@@ -124,7 +126,10 @@ public class ProcessGoals
         numberOfPointsEarned = _goalList[goalNumber - 1].RecordEvent();
         _currentScore += numberOfPointsEarned;
         string earnedLost = _goalList[goalNumber - 1].GetGoalType() == "NegativeGoal" ? "lost":"earned";
-        Console.WriteLine($"Congratulations! You have {earnedLost} {numberOfPointsEarned} points!" );
+        string congratSorry = _goalList[goalNumber - 1].GetGoalType() == "NegativeGoal" ? "Sorry,":"Congratulations!";
+        string endString = _goalList[goalNumber - 1].GetGoalType() == "NegativeGoal" ? ".":"!";
+        Console.WriteLine($"{congratSorry} You have {earnedLost} {numberOfPointsEarned} points{endString}" );
+
         Console.WriteLine($"You now have {_currentScore} points.\n" );
     }
 
@@ -140,7 +145,6 @@ public class ProcessGoals
             foreach (Goal goal in _goalList)
             {
                 outputFile.WriteLine($"{goal.GetStringRepresentation()}");
-                Console.WriteLine($"{goal.GetStringRepresentation()}");
             }
         }
     }
