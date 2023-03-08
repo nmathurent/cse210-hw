@@ -128,6 +128,7 @@ public class ProcessGoals
         string earnedLost = _goalList[goalNumber - 1].GetGoalType() == "NegativeGoal" ? "lost":"earned";
         string congratSorry = _goalList[goalNumber - 1].GetGoalType() == "NegativeGoal" ? "Sorry,":"Congratulations!";
         string endString = _goalList[goalNumber - 1].GetGoalType() == "NegativeGoal" ? ".":"!";
+        numberOfPointsEarned = _goalList[goalNumber - 1].GetGoalType() == "NegativeGoal" ? numberOfPointsEarned * -1: numberOfPointsEarned;
         Console.WriteLine($"{congratSorry} You have {earnedLost} {numberOfPointsEarned} points{endString}" );
 
         Console.WriteLine($"You now have {_currentScore} points.\n" );
@@ -207,6 +208,7 @@ public class ProcessGoals
                 goalC.SetNumberCompleted(numberCompleted);
                 return goalC;
             case "NegativeGoal":
+                goalPoints = goalPoints * -1;
                 NegativeGoal goalN = new NegativeGoal(typeOfGoal, goalName, goalDesc, goalPoints);
                 return goalN;
             default:

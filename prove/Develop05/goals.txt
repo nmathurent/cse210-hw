@@ -1,6 +1,6 @@
-840
+810
 SimpleGoal:Give a talk|Speak in Sacrament|100|True
 EternalGoal:Study the scripytures|Study for at least 10 minutes|50
 ChecklistGoal:Attend the temple|Attend and perform any ordinace|50|500|3|3
 ChecklistGoal:Wake up early|Wake up by at least 6:00 am|10|1000|10|0
-EternalGoal:Neg|Zero|-10
+NegativeGoal:Neg|Zero|-10
