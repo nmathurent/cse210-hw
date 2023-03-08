@@ -20,7 +20,7 @@ class Program
             Console.WriteLine("   6. Quit");
             Console.Write("Select a choice from the menu: ");
             optionSel = Console.ReadLine();
-            Console.WriteLine($"\nOption selected: {optionSel}");
+
             switch (optionSel)
             {
                 case "1":

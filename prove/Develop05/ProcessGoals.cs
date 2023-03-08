@@ -174,7 +174,7 @@ public class ProcessGoals
         // Split each line of the file in an arry of strings
         string[] parts = line.Split("|");
 
-        string goalName = parts[0].Substring(parts[0].IndexOf(":"));
+        string goalName = parts[0].Substring(parts[0].IndexOf(":") + 1);
         string goalDesc = parts[1];
         int    goalPoints = int.Parse(parts[2]);
         switch (typeOfGoal)

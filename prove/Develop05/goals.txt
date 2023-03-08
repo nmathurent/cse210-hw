@@ -1,4 +1,4 @@
-0
-SimpleGoal:Give a talk,Speak in Sacrament,100,False
-EternalGoal:Study the scripytures,Study for at least 10 minutes,50
-CheckListGoal:Attend the temple,Attend and perform any ordinace,50,500,3,0
+250
+SimpleGoal:Give a talk|Speak in Sacrament|100|True
+EternalGoal:Study the scripytures|Study for at least 10 minutes|50
+ChecklistGoal:Attend the temple|Attend and perform any ordinace|50|500|3|1
