@@ -29,6 +29,7 @@ public class ProcessGoals
         Console.WriteLine("   1. Simple Goal");
         Console.WriteLine("   2. Eternal Goal");
         Console.WriteLine("   3. Checklist Goal");
+        Console.WriteLine("   4. Negative Goal");
         Console.Write("Which type of goal would you like to create? ");
         typeOfGoal = Console.ReadLine();
 
@@ -42,6 +43,9 @@ public class ProcessGoals
                     break;
                 case "3":
                     typeOfGoalDesc = "ChecklistGoal";
+                    break;
+                case "4":
+                    typeOfGoalDesc = "NegativeGoal";
                     break;
         }
         Console.Write("What is the name of your goal? ");
@@ -81,6 +85,9 @@ public class ProcessGoals
                 case "3":
                     _goalList.Add(new CheckListGoal(typeOfGoalDesc, goalName, goalDesc, goalPoints, numberOfTimes, extraBonus ));
                     break;
+                case "4":
+                    _goalList.Add(new NegativeGoal(typeOfGoalDesc, goalName, goalDesc, goalPoints ));
+                    break;
         }
         // SimpleGoal goal = new SimpleGoal(typeOfGoalDesc, goalName, goalDesc, goalPoints );
         // _goalList.Add(goal);
@@ -116,7 +123,8 @@ public class ProcessGoals
         }
         numberOfPointsEarned = _goalList[goalNumber - 1].RecordEvent();
         _currentScore += numberOfPointsEarned;
-        Console.WriteLine($"Congratulations! You have earned {numberOfPointsEarned} points!" );
+        string earnedLost = _goalList[goalNumber - 1].GetGoalType() == "NegativeGoal" ? "lost":"earned";
+        Console.WriteLine($"Congratulations! You have {earnedLost} {numberOfPointsEarned} points!" );
         Console.WriteLine($"You now have {_currentScore} points.\n" );
     }
 
@@ -194,6 +202,9 @@ public class ProcessGoals
                 CheckListGoal goalC = new CheckListGoal(typeOfGoal, goalName, goalDesc, goalPoints, numberOfTimes, extraBonus);
                 goalC.SetNumberCompleted(numberCompleted);
                 return goalC;
+            case "NegativeGoal":
+                NegativeGoal goalN = new NegativeGoal(typeOfGoal, goalName, goalDesc, goalPoints);
+                return goalN;
             default:
                 return new Goal(typeOfGoal, goalName, goalDesc, goalPoints);;
         }
