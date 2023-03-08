@@ -40,7 +40,7 @@ public class SimpleGoal : Goal
     }
 
     public override string GetStringRepresentation() {
-        return $"SimpleGoal:{this.GetGoalName()},{this.GetGoalDescription()},{this.GetGoalPoints()},{this._goalCompleted}";
+        return $"SimpleGoal:{this.GetGoalName()}|{this.GetGoalDescription()}|{this.GetGoalPoints()}|{this._goalCompleted}";
     }
 }
 
