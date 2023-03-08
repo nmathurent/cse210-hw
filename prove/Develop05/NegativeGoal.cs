@@ -30,7 +30,7 @@ public class NegativeGoal : Goal
     }
 
     public override string GetStringRepresentation() {
-        return $"EternalGoal:{this.GetGoalName()}|{this.GetGoalDescription()}|{this.GetGoalPoints()}";
+        return $"NegativeGoal:{this.GetGoalName()}|{this.GetGoalDescription()}|{this.GetGoalPoints()}";
     }
 }
 
