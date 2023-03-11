@@ -19,13 +19,6 @@ public class SimpleGoal : Goal
         _goalCompleted = false;
     }
 
-    public override string DisplayGoal() {
-        string goalSelected;
-        goalSelected = this.IsComplete() ? "X": " ";
-        return $"[{goalSelected}] {this.GetGoalName()} ({this.GetGoalDescription()})";
-    }
-
-
     public override Boolean IsComplete() {
         return _goalCompleted;
     }

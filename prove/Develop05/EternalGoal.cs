@@ -9,27 +9,5 @@ public class EternalGoal : Goal
     {
     }
 
-    public override string DisplayGoal() {
-        string goalSelected;
-        goalSelected = this.IsComplete() ? "X": " ";
-        return $"[{goalSelected}] {this.GetGoalName()} ({this.GetGoalDescription()})";
-    }
-
-
-    public override Boolean IsComplete() {
-        return false;
-    }
-
-    public override int RecordEvent() {
-        if (this.IsComplete()) {
-            return 0;
-        } else {
-            return this.GetGoalPoints();
-        }
-    }
-
-    public override string GetStringRepresentation() {
-        return $"EternalGoal:{this.GetGoalName()}|{this.GetGoalDescription()}|{this.GetGoalPoints()}";
-    }
 }
 

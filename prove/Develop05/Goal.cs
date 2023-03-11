@@ -47,7 +47,9 @@ public class Goal
     }
 
     public virtual string DisplayGoal() {
-        return $"{_goalType} {_goalName} {_goalDescription} {_goalPoints}";
+        string goalSelected;
+        goalSelected = this.IsComplete() ? "X": " ";
+        return $"[{goalSelected}] {this.GetGoalName()} ({this.GetGoalDescription()})";
     }
 
     public virtual Boolean IsComplete() {
@@ -55,10 +57,14 @@ public class Goal
     }
 
     public virtual int RecordEvent() {
-        return 0;
+        if (this.IsComplete()) {
+            return 0;
+        } else {
+            return this.GetGoalPoints();
+        }
     }
 
     public virtual string GetStringRepresentation() {
-        return "";
+        return $"EternalGoal:{this.GetGoalName()}|{this.GetGoalDescription()}|{this.GetGoalPoints()}";
     }
 }
