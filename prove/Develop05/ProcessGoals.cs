@@ -23,8 +23,7 @@ public class ProcessGoals
         int goalPoints = 0;
         int numberOfTimes = 0;
         int extraBonus = 0;
-        Boolean isNumerical = false;
-
+        
         Console.WriteLine("The types of Goals are:");
         Console.WriteLine("   1. Simple Goal");
         Console.WriteLine("   2. Eternal Goal");
@@ -51,42 +50,22 @@ public class ProcessGoals
                     typeOfGoalDesc = "NegativeGoal";
                     break;
         }
-        // Validate the user enter a goal name
-        while (goalName == "") {
-                Console.Write("What is the name of your goal? ");  
-                goalName = Console.ReadLine(); 
-                if (goalName == "") {Console.WriteLine("Invalid value");}
-        }
-        // Validate the user enter a goal desc
-        while (goalDesc == "") {
-                Console.Write("What is the short description of it? ");  
-                goalDesc = Console.ReadLine();
-                if (goalDesc == "") {Console.WriteLine("Invalid value");} 
-        }
 
-        // Validate the user enter a  numeric value
-        while (!isNumerical) {
-                Console.Write("What is the amount of points associated with this goal? ");  
-                isNumerical = int.TryParse(Console.ReadLine(), out goalPoints); 
-                if (!isNumerical) {Console.WriteLine("Invalid value");}
-        }
+        // Calling ValidateStringInput to validate the user enter a goal name
+        goalName = ValidateStringInput("What is the name of your goal? ");
+        // Calling ValidateStringInput to validate the user enter a goal desc
+        goalDesc = ValidateStringInput("What is the short description of it? ");
+        // Calling ValidateNumericInput to validate the user enter a numeric value as amount of points
+        goalPoints = ValidateNumericInput("What is the amount of points associated with this goal? ");
 
         if (typeOfGoal == "3") {
  
-            // Validate the user enter a  numeric value
-            isNumerical = false;
-            while (!isNumerical) {
-                Console.Write("How many times does this goal need to be accomplished for a bonus? ");  
-                isNumerical = int.TryParse(Console.ReadLine(), out numberOfTimes); 
-                if (!isNumerical) {Console.WriteLine("Invalid value");} 
-            }
-            // Validate the user enter a  numeric value
-            isNumerical = false;
-            while (!isNumerical) {
-                Console.Write("What is the bonus for accomplishing it that many times? ");  
-                isNumerical = int.TryParse(Console.ReadLine(), out extraBonus); 
-                if (!isNumerical) {Console.WriteLine("Invalid value");} 
-            }
+            // Calling ValidateNumericInput to validate the user enter a numeric value as number of times
+            numberOfTimes = ValidateNumericInput("How many times does this goal need to be accomplished for a bonus? ");
+
+            // Calling ValidateNumericInput to validate the user enter a numeric value as extra bonus
+            extraBonus = ValidateNumericInput("What is the bonus for accomplishing it that many times? ");
+
         }
 
         switch (typeOfGoal)
@@ -117,11 +96,33 @@ public class ProcessGoals
         }
     }
 
+    public string ValidateStringInput(string question) {
+        string inputText = "";
+        // Validate the user enter a text value
+        while (inputText == "") {
+                Console.Write(question);  
+                inputText = Console.ReadLine(); 
+                if (inputText == "") {Console.WriteLine("Invalid value");}
+        }
+        return inputText;
+    }
+
+    public int ValidateNumericInput(string question) {
+        int inputNumber = 0;
+        Boolean isNumerical = false;
+
+        // Validate the user enter a numeric value
+        while (!isNumerical) {
+                Console.Write(question);  
+                isNumerical = int.TryParse(Console.ReadLine(), out inputNumber); 
+                if (!isNumerical) {Console.WriteLine("Invalid value");}
+        }
+        return inputNumber;
+    }
     public void RecordEvent() {
         int goalCount = 0;
         int goalNumber = 0;
         int numberOfPointsEarned = 0;
-        Boolean isNumerical = false;
 
         Console.WriteLine("The goals are:");
         foreach (Goal goal in _goalList)
@@ -129,14 +130,13 @@ public class ProcessGoals
             goalCount += 1;
             Console.WriteLine($"{goalCount}. {goal.GetGoalName()}" );
         }
-        // Validate the user enter a  numeric value
-        isNumerical = false;
-        while (!isNumerical) {
-            Console.Write("Which goal did you accomplish? ");  
-            isNumerical = int.TryParse(Console.ReadLine(), out goalNumber); 
-        }
+
+        // Calling ValidateNumericInput to validate the user enter a numeric value as goal number
+        goalNumber = ValidateNumericInput("Which goal did you accomplish? ");
+
         numberOfPointsEarned = _goalList[goalNumber - 1].RecordEvent();
         _currentScore += numberOfPointsEarned;
+        // Build the message based in type of goal
         string earnedLost = _goalList[goalNumber - 1].GetGoalType() == "NegativeGoal" ? "lost":"earned";
         string congratSorry = _goalList[goalNumber - 1].GetGoalType() == "NegativeGoal" ? "Sorry,":"Congratulations!";
         string endString = _goalList[goalNumber - 1].GetGoalType() == "NegativeGoal" ? ".":"!";
@@ -184,12 +184,8 @@ public class ProcessGoals
 
     public string RequestFileName(){
         string fileName = "";
-        // Validate the filename is entered by the user and it is not leaved blank
-        while (fileName == "") {
-            Console.Write("What is the filename for the goal file? ");  
-            fileName = Console.ReadLine(); 
-            if (fileName == "") {Console.WriteLine("Invalid value");} 
-        }
+        // Calling ValidateStringInput to validate the user enter a file name and it is not leaved blank
+        fileName = ValidateStringInput("What is the filename for the goal file? ");
         return fileName;
     }
 
