@@ -39,7 +39,7 @@ public class CheckListGoal : Goal
     public override string DisplayGoal() {
         string goalSelected;
         goalSelected = this.IsComplete() ? "X": " ";
-        return $"[{goalSelected}] {this.GetGoalName()} ({this.GetGoalDescription()}) -- Curently completed: {this._numberCompleted}/{this._numberOfTimes}";
+        return $"[{goalSelected}] {this.GetGoalName()} ({this.GetGoalDescription()}) -- Currently completed: {this._numberCompleted}/{this._numberOfTimes}";
     }
 
 
