@@ -18,8 +18,8 @@ public class ProcessGoals
     public void AddNewGoal() {
         string typeOfGoal;
         string typeOfGoalDesc = "";
-        string goalName;
-        string goalDesc;
+        string goalName = "";
+        string goalDesc ="";
         int goalPoints = 0;
         int numberOfTimes = 0;
         int extraBonus = 0;
@@ -51,14 +51,24 @@ public class ProcessGoals
                     typeOfGoalDesc = "NegativeGoal";
                     break;
         }
-        Console.Write("What is the name of your goal? ");
-        goalName = Console.ReadLine();
-        Console.Write("What is the short description of it? ");
-        goalDesc = Console.ReadLine();
+        // Validate the user enter a goal name
+        while (goalName == "") {
+                Console.Write("What is the name of your goal? ");  
+                goalName = Console.ReadLine(); 
+                if (goalName == "") {Console.WriteLine("Invalid value");}
+        }
+        // Validate the user enter a goal desc
+        while (goalDesc == "") {
+                Console.Write("What is the short description of it? ");  
+                goalDesc = Console.ReadLine();
+                if (goalDesc == "") {Console.WriteLine("Invalid value");} 
+        }
 
+        // Validate the user enter a  numeric value
         while (!isNumerical) {
                 Console.Write("What is the amount of points associated with this goal? ");  
                 isNumerical = int.TryParse(Console.ReadLine(), out goalPoints); 
+                if (!isNumerical) {Console.WriteLine("Invalid value");}
         }
 
         if (typeOfGoal == "3") {
@@ -68,12 +78,14 @@ public class ProcessGoals
             while (!isNumerical) {
                 Console.Write("How many times does this goal need to be accomplished for a bonus? ");  
                 isNumerical = int.TryParse(Console.ReadLine(), out numberOfTimes); 
+                if (!isNumerical) {Console.WriteLine("Invalid value");} 
             }
             // Validate the user enter a  numeric value
             isNumerical = false;
             while (!isNumerical) {
                 Console.Write("What is the bonus for accomplishing it that many times? ");  
                 isNumerical = int.TryParse(Console.ReadLine(), out extraBonus); 
+                if (!isNumerical) {Console.WriteLine("Invalid value");} 
             }
         }
 
@@ -176,6 +188,7 @@ public class ProcessGoals
         while (fileName == "") {
             Console.Write("What is the filename for the goal file? ");  
             fileName = Console.ReadLine(); 
+            if (fileName == "") {Console.WriteLine("Invalid value");} 
         }
         return fileName;
     }
