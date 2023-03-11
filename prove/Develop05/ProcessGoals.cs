@@ -134,6 +134,12 @@ public class ProcessGoals
         // Calling ValidateNumericInput to validate the user enter a numeric value as goal number
         goalNumber = ValidateNumericInput("Which goal did you accomplish? ");
 
+        // Validate the goal number entered is in the list showed to the user
+        if (goalNumber > goalCount || goalNumber <= 0) {
+            Console.WriteLine("The goal number entered is not in the list");
+            return;
+        }
+        
         numberOfPointsEarned = _goalList[goalNumber - 1].RecordEvent();
         _currentScore += numberOfPointsEarned;
         // Build the message based in type of goal
