@@ -52,6 +52,7 @@ public class CheckListGoal : Goal
             return 0;
         } else {
             _numberCompleted += 1;
+            if (_numberCompleted == _numberOfTimes) { ShowCongratulations(this._extraBonus);}
             return _numberCompleted == _numberOfTimes ? this.GetGoalPoints() + this._extraBonus:this.GetGoalPoints();
         }
     }
@@ -59,5 +60,33 @@ public class CheckListGoal : Goal
     public override string GetStringRepresentation() {
         return $"ChecklistGoal:{this.GetGoalName()}|{this.GetGoalDescription()}|{this.GetGoalPoints()}|{this._extraBonus}|{this._numberOfTimes}|{this._numberCompleted}";
     }
+
+    public void ShowCongratulations(int extraBonus)
+    {
+        DateTime startTime = DateTime.Now;
+        DateTime futureTime = startTime.AddSeconds(5);
+
+        DateTime currentTime = DateTime.Now;
+        while (currentTime < futureTime)
+        {
+            currentTime = DateTime.Now;
+           foreach (char letter in "*** Extra Points ***")
+           {
+             Console.Write($"{letter}");
+             Thread.Sleep(100);
+           }
+           foreach (char letter in "*** Extra Points ***")
+           {
+             Console.Write("\b \b"); // Erase the characters
+           }
+           Console.Write($"  You have earned {extraBonus} points!");
+           Thread.Sleep(600);
+           foreach (char letter in "  You have earned {extraBonus} points!")
+           {
+             Console.Write("\b \b"); // Erase the characters
+           }
+        }
+    }
+
 }
 
