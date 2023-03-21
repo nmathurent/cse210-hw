@@ -42,10 +42,10 @@ public class Address
         SetCountry(country);
     }
     public string GetStringAddress() {
-        return "";
+        return $"{GetStreet()}\n{GetCity()}, {GetStateProvince()} \n{GetCountry()}";
     }
     public Boolean LiveInUSA() {
-        return true;
+        return GetCountry() == "USA";
     }
 }
 

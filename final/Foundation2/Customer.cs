@@ -26,7 +26,7 @@ public class Customer
         SetAddress(address);
     }
     public Boolean LiveInUSA() {
-        return true;
+        return GetAddress().LiveInUSA();
     }
 
 }
