@@ -34,8 +34,16 @@ public class Product
         _quantity = quantity;
     }
 
+// Constructor 
+    public Product(string name, int productID, double price, int quantity)
+    {
+        SetName(name);
+        SetProductID(productID);
+        SetPrice(price);
+        SetQuantity(quantity);
+    }
     public double CalculatePrice() {
-        return 0;
+        return _price * _quantity;
     }
 
 }

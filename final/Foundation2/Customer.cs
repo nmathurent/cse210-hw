@@ -14,11 +14,16 @@ public class Customer
         _customerName = customerName;
     }
 
-    public string GetAddress() {
+    public Address GetAddress() {
         return _address;
     }
     public void SetAddress(Address address) {
         _address = address;
+    }
+    public Customer(string customerName, Address address)
+    {
+        SetCustomerName(customerName);
+        SetAddress(address);
     }
     public Boolean LiveInUSA() {
         return true;

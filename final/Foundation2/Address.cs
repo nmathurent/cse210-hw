@@ -34,6 +34,13 @@ public class Address
         _country = country;
     }
 
+    public Address(string street, string city, string stateProvince, string country)
+    {
+        SetStreet(street);
+        SetCity(city);
+        SetStateProvince(stateProvince);
+        SetCountry(country);
+    }
     public string GetStringAddress() {
         return "";
     }
