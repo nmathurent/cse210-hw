@@ -4,20 +4,13 @@
 
 public class Video
 {
-    private string _title;
-    private string _author;
-    private int _length;
-    private List<Comment> _commentList;
-
-    public string GetTitle() {
-        return _title;
-    }
-    public void SetTitle(string title) {
-        _title = title;
-    }
+    public string _title;
+    public string _author;
+    public int _length;
+    public List<Comment> _commentList;
 
     public void DisplayVideo() {
-        Console.WriteLine(GetTitle());
+        Console.WriteLine(_title);
     }
 
     public int CalculateNumberOfComments() {

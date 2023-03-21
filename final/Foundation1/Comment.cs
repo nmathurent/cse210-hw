@@ -4,21 +4,9 @@
 
 public class Comment
 {
-    private string _writtenBy;
-    private string _commentText;
+    public string _writtenBy;
+    public string _commentText;
 
-    public string GetWrittenBy() {
-        return _writtenBy;
-    }
-    public void SetTitle(string writtenBy) {
-        _writtenBy = writtenBy;
-    }
-    public string GetCommentText() {
-        return _commentText;
-    }
-    public void SetCommentText(string commentText) {
-        _commentText = commentText;
-    }
     public void DisplayComment() {
         Console.WriteLine(_writtenBy);
     }
