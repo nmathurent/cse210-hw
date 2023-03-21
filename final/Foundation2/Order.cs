@@ -48,10 +48,11 @@ public class Order
 
     public void DisplayShippingLabel() {
         Console.WriteLine(CreateShippingLabel());
-        Console.WriteLine(GetShippingCost());
-        Console.WriteLine(CalculateTotalPrice());
     }
 
+    public void DisplayTotalPrice() {
+        Console.WriteLine("Total price: " + CalculateTotalPrice());
+    }
     public double GetShippingCost() {
         return GetCustomer().LiveInUSA() ? 5.00 : 35.00;
     }
