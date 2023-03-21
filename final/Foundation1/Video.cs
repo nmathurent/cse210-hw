@@ -11,6 +11,13 @@ public class Video
 
     public void DisplayVideo() {
         Console.WriteLine(_title);
+        Console.WriteLine(_author);
+        Console.WriteLine($"Duration: {_length} seconds");
+        Console.WriteLine("\nComments:");
+        foreach (Comment comment in _commentList)
+        {
+            comment.DisplayComment();
+        }
     }
 
     public int CalculateNumberOfComments() {

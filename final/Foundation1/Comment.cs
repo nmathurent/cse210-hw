@@ -8,7 +8,7 @@ public class Comment
     public string _commentText;
 
     public void DisplayComment() {
-        Console.WriteLine(_writtenBy);
+        Console.WriteLine($"{_writtenBy}: {_commentText}");
     }
 
 }
