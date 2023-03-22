@@ -31,12 +31,7 @@ public class Video
     }
 
     public int CalculateNumberOfComments() {
-        int numComments = 0;
-        foreach (Comment comment in _commentList)
-        {
-            numComments += 1;
-        }
-        return numComments;
+        return _commentList.Count;
     }
 
 }
