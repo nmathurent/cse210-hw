@@ -34,7 +34,7 @@ public class Order
         return totalCost;
     }
     public string CreatePackingLabel(Product product) {
-        return $"{product.GetProductID()} - {product.GetName()}";
+        return $"{product.GetProductID()} - {product.GetName()}  {product.GetQuantity()}  {product.GetPrice()}";
     }
     public string CreateShippingLabel() {
         return $"{GetCustomer().GetCustomerName()}\n{GetCustomer().GetAddress().GetStringAddress()}";
