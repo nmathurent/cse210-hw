@@ -34,7 +34,7 @@ public class Order
         return totalCost;
     }
     public string CreatePackingLabel(Product product) {
-        return $"{product.GetProductID()} - {product.GetName()}  {product.GetQuantity()}  {product.GetPrice()}";
+        return $"{product.GetProductID()} - {product.GetName()}     {product.GetQuantity()}     {product.GetPrice()}";
     }
     public string CreateShippingLabel() {
         return $"{GetCustomer().GetCustomerName()}\n{GetCustomer().GetAddress().GetStringAddress()}";
@@ -46,12 +46,27 @@ public class Order
         }
     }
 
+    public void DisplayBill() {
+        Console.WriteLine("\nShipping to:");
+        this.DisplayShippingLabel();
+        Console.WriteLine("");
+        Console.WriteLine("Product              Qty    Price");
+        this.DisplayPackingLabel();
+        this.DisplayShippingCost();
+        this.DisplayTotalPrice();
+        
+    }
+
     public void DisplayShippingLabel() {
         Console.WriteLine(CreateShippingLabel());
     }
 
     public void DisplayTotalPrice() {
-        Console.WriteLine("Total price: " + CalculateTotalCost());
+        Console.WriteLine($"Total price: {CalculateTotalCost()}");
+    }
+
+    public void DisplayShippingCost() {
+        Console.WriteLine($"Shipping Cost: {GetShippingCost()}");
     }
     public double GetShippingCost() {
         return GetCustomer().LiveInUSA() ? 5.00 : 35.00;
