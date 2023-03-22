@@ -62,11 +62,11 @@ public class Order
     }
 
     public void DisplayTotalPrice() {
-        Console.WriteLine($"Total price: {CalculateTotalCost()}");
+        Console.WriteLine($"Total price: {CalculateTotalCost().ToString("0.00")}");
     }
 
     public void DisplayShippingCost() {
-        Console.WriteLine($"Shipping Cost: {GetShippingCost()}");
+        Console.WriteLine($"Shipping Cost: {GetShippingCost().ToString("0.00")}");
     }
     public double GetShippingCost() {
         return GetCustomer().LiveInUSA() ? 5.00 : 35.00;
