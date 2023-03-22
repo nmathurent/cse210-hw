@@ -25,13 +25,13 @@ public class Order
         SetCustomerName(customerName);
         SetProductList(productList);
     }
-    public double CalculateTotalPrice() {
-        Double totalPrice = GetShippingCost();
+    public double CalculateTotalCost() {
+        Double totalCost = GetShippingCost();
         foreach (Product product in GetProductList())
         {
-            totalPrice += product.CalculatePrice();
+            totalCost += product.CalculatePrice();
         }
-        return totalPrice;
+        return totalCost;
     }
     public string CreatePackingLabel(Product product) {
         return $"{product.GetProductID()} - {product.GetName()}";
@@ -51,7 +51,7 @@ public class Order
     }
 
     public void DisplayTotalPrice() {
-        Console.WriteLine("Total price: " + CalculateTotalPrice());
+        Console.WriteLine("Total price: " + CalculateTotalCost());
     }
     public double GetShippingCost() {
         return GetCustomer().LiveInUSA() ? 5.00 : 35.00;

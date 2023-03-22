@@ -21,12 +21,13 @@ public class Video
         Console.WriteLine($"\nTitle: {_title}");
         Console.WriteLine($"Author: {_author}");
         Console.WriteLine($"Duration: {_length} seconds");
-        Console.WriteLine("\nComments:");
+        Console.WriteLine($"Number of Comments:{CalculateNumberOfComments()}");
+        Console.WriteLine("\n  Comments:");
         foreach (Comment comment in _commentList)
         {
             comment.DisplayComment();
         }
-        Console.WriteLine($"Number of Comments:{CalculateNumberOfComments()}");
+        
     }
 
     public int CalculateNumberOfComments() {

@@ -18,7 +18,6 @@ class Program
         Comment comment3 = new Comment("Randy", "Please add more similar videos!!");
         commentList.Add(comment3);
         Video video1 = new Video("First 1st Video", "Peter Smith", 35, commentList);
-        video1._commentList = commentList;
         videoList.Add(video1);
 
         Comment comment4 = new Comment("Brandon", "I did not like your video, too short");
@@ -36,8 +35,7 @@ class Program
         commentList3.Add(comment8);
         Comment comment9 = new Comment("Lewis", "Fantastic!!");
         commentList3.Add(comment9);
-        Video video3 = new Video("Third 1st Video", "Brad Allen", 60, commentList3);
-        video1._commentList = commentList3;
+        Video video3 = new Video("Third 3rd Video", "Brad Allen", 60, commentList3);
         videoList.Add(video3);
 
         foreach (Video video in videoList)
