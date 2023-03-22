@@ -10,7 +10,7 @@ public class Video
     public List<Comment> _commentList;
 
     public void DisplayVideo() {
-        Console.WriteLine(_title);
+        Console.WriteLine($"\n{_title}");
         Console.WriteLine(_author);
         Console.WriteLine($"Duration: {_length} seconds");
         Console.WriteLine("\nComments:");
@@ -18,10 +18,16 @@ public class Video
         {
             comment.DisplayComment();
         }
+        Console.WriteLine($"\nNumber of Comments:{CalculateNumberOfComments()}");
     }
 
     public int CalculateNumberOfComments() {
-        return 0;
+        int numComments = 0;
+        foreach (Comment comment in _commentList)
+        {
+            numComments += 1;
+        }
+        return numComments;
     }
 
 }
