@@ -2,52 +2,30 @@
 // Author : Nelson Mathurent
 // Date:    Mar 22, 2023
 
-public class Event
+public class LectureEvent : Event
 {
-    private string _title;
-    private string _description;
-    private string _date;
-    private string _time;
-    private Address _address;
+    private string _speakerName;
+    private int _capacity;
+    
+    public string GetSpeakerName() {
+        return _speakerName;
+    }
+    public void SetSpeakerName(string speakerName) {
+        _speakerName = speakerName;
+    }
+    public int GetCapacityn() {
+        return _capacity;
+    }
+    public void SetCapacity(int capacity) {
+        _capacity = capacity;
+    }
 
-    public string GetTitle() {
-        return _title;
-    }
-    public void SetTitle(string title) {
-        _title = title;
-    }
-    public string GetDescription() {
-        return _description;
-    }
-    public void SetDescription(string description) {
-        _description = description;
-    }
-    public string GetDate() {
-        return _date;
-    }
-    public void SetDate(string date) {
-        _date = date;
-    }
-    public string GetTime() {
-        return _time;
-    }
-    public void SetTime(string time) {
-        _time = time;
-    }
-    public Address GetAddress() {
-        return _address;
-    }
-    public void SetAddress(Address address) {
-        _address = address;
-    }
 // Constructor 
-    public Event(string title, string description, string date, string time, Address address)
+    public LectureEvent(string title, string description, string date, string time, Address address, string speakerName, int capacity)
+        : base(title, description, date, time, address)
     {
-        SetTitle(title);
-        SetDescription(description);
-        SetDate(date);
-        SetTime(time);
-        SetAddress(address);
+        SetSpeakerName(speakerName);
+        SetCapacity(capacity);
     }
 
 }
