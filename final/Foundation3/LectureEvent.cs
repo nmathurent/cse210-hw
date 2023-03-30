@@ -37,8 +37,8 @@ public class LectureEvent : Event
 
     public void DisplayFullDetailsLecture()
     {
-        DisplayStandardDetails();
         Console.WriteLine();
+        DisplayStandardDetails();
         Console.WriteLine($"Event type: {GetEventType()}");
         Console.WriteLine($"{this.GetMessage()}");
     }

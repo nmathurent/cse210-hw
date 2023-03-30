@@ -29,8 +29,8 @@ public class ReceptionsEvent : Event
 
     public void DisplayFullDetailsReceptions()
     {
-        DisplayStandardDetails();
         Console.WriteLine();
+        DisplayStandardDetails();
         Console.WriteLine($"Event type: {GetEventType()}");
         Console.WriteLine($"{this.GetMessage()}");
     }

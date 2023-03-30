@@ -29,8 +29,8 @@ public class OutdoorEvent : Event
 
     public void DisplayFullDetailsOutdoor()
     {
-        DisplayStandardDetails();
         Console.WriteLine();
+        DisplayStandardDetails();
         Console.WriteLine($"Event type: {GetEventType()}");
         Console.WriteLine($"{this.GetMessage()}");
     }
