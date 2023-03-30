@@ -20,5 +20,10 @@ public class CyclingActivity : Activity
         SetSpeed(speed);
     }
 
+    public override double CalculateDistance()
+    {
+        // Distance = Speed × Time
+        return GetSpeed() * this.GetLength();
+    }
 }
 

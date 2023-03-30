@@ -27,5 +27,10 @@ public class Activity
         SetLength(length);
     }
 
+    public virtual double CalculateDistance()
+    {
+        return 0;
+    }
+
 }
 
