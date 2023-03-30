@@ -1,0 +1,24 @@
+// Inheritance with Event Planning Program    Week 13
+// Author : Nelson Mathurent
+// Date:    Mar 29, 2023
+
+public class CyclingActivity : Activity
+{
+    private double _speed;
+    
+    public double GetSpeed() {
+        return _speed;
+    }
+    public void SetSpeed(double speed) {
+        _speed = speed;
+    }
+
+
+// Constructor 
+    public CyclingActivity(string date, int length, double speed) : base(date, length)
+    {
+        SetSpeed(speed);
+    }
+
+}
+
