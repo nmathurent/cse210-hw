@@ -57,7 +57,7 @@ public class Event
 
     public void DisplayStandardDetails()
     {
-        Console.WriteLine($"Event title:{GetTitle()}");
+        Console.WriteLine($"Event title: {GetTitle()}");
         Console.WriteLine($"Description: {GetDescription()}");
         Console.WriteLine($"Date/Time: {GetDate()} - {GetTime()}");
         Console.WriteLine($"Address: {GetAddress().GetStringAddress()}");

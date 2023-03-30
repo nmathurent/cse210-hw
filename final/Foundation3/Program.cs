@@ -6,6 +6,8 @@ class Program
     {
         Console.Clear();
         // Creating a Lecture event
+        Console.WriteLine("\nLecture Event");
+        Console.WriteLine("---------------");
         Address lectureAddress = new Address("2002 N Main St", "Santa Ana", "CA", "92706");
         LectureEvent lectureE = new LectureEvent("Lynda Thomas Distinguished Lecture Series",
                                                 "Legendary Authors and the Clothes They Wore with Terry N",
@@ -23,7 +25,9 @@ class Program
         lectureE.DisplayShortDescLecture();
 
         // Creating an Outdoor event
-        Address outdoorAddress = new Address("11520 W Pico Blvd", "Los Angeles", "CA", "");
+        Console.WriteLine("\nOutdoor Event");
+        Console.WriteLine("---------------");
+        Address outdoorAddress = new Address("11520 W Pico Blvd", "Los Angeles", "CA", "90064");
         OutdoorEvent outdoorE = new OutdoorEvent("It's All Fun & Games - Outdoor Social",
                                                 "Join us for an exclusive friends, cocktails & games social at LA",
                                                 "04/02/2023",
@@ -39,6 +43,8 @@ class Program
         outdoorE.DisplayShortDescOutdoor();
 
         // Creating a Reception event
+        Console.WriteLine("\nReception Event");
+        Console.WriteLine("---------------");
         Address receptionAddress = new Address("7344 Washington Ave.", "Whittier", "CA", "90602");
         ReceptionsEvent receptionE = new ReceptionsEvent("Whittier Reads 2023 Event",
                                                 "Reception and Dinner for Javier Zamora",

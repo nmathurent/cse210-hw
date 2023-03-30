@@ -7,7 +7,7 @@ public class ReceptionsEvent : Event
     private string _emailRSVP;
 
     public string GetEventType() {
-        return "Receptions";
+        return "Reception";
     } 
     public string GetEmailRSVP() {
         return _emailRSVP;
