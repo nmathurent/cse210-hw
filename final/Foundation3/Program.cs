@@ -10,8 +10,15 @@ class Program
                                                 "Legendary Authors and the Clothes They Wore with Terry N",
                                                 "04/02/2023",
                                                 "11:00 AM",
-                                                );
-        Console.WriteLine("Welcome to Online Ordering program!");
-
+                                                lectureAddress,
+                                                "Lynda Thomas",
+                                                50);
+        
+        // Generating Standard marketing message
+        lectureE.DisplayStandardDetails();
+        // Generating Full details marketing message
+        lectureE.DisplayFullDetailsLecture();
+        // Generating Short description marketing message
+        lectureE.DisplayShortDescLecture();
     }
 }

@@ -44,7 +44,7 @@ public class Event
     public string GetTitleDate() {
         return $"Title: {GetTitle()} Date: {GetDate()}";
     }
-    
+
 // Constructor 
     public Event(string title, string description, string date, string time, Address address)
     {
@@ -56,11 +56,6 @@ public class Event
     }
 
     public void DisplayStandardDetails()
-    {
-        Console.WriteLine($"Event title:{GetTitle()} - {GetDescription()} - Date: {GetDate()} {GetTime()}");
-        Console.WriteLine($"{GetAddress().GetStringAddress()}");
-    }
-    public void DisplayShortDescription()
     {
         Console.WriteLine($"Event title:{GetTitle()} - {GetDescription()} - Date: {GetDate()} {GetTime()}");
         Console.WriteLine($"{GetAddress().GetStringAddress()}");
