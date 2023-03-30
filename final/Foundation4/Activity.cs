@@ -32,5 +32,20 @@ public class Activity
         return 0;
     }
 
+    public virtual double CalculateSpeed()
+    {
+        return 0;
+    }
+
+    public virtual double CalculatePace()
+    {
+        return 0;
+    }
+
+    public void GetSummary()
+    {
+        Console.WriteLine($"{this.GetDate()} {this.GetType().ToString().Replace("Activity", "")} ({this.GetLength()} min)- Distance {this.CalculateDistance().ToString("0.0")} miles, Speed {this.CalculateSpeed().ToString("0.0")} mph, Pace: {this.CalculatePace().ToString("0.0")} min per mile");
+    }
+
 }
 

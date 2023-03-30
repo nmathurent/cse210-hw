@@ -20,5 +20,21 @@ public class RunningActivity : Activity
         SetDistance(distance);
     }
 
+    public override double CalculateDistance()
+    {
+        return GetDistance();
+    }
+
+    public override double CalculateSpeed()
+    {
+        // Speed (mph or kph) = (distance / minutes) * 60
+        return (CalculateDistance() / this.GetLength()) * 60;
+    }
+
+    public override double CalculatePace()
+    {
+        // Pace (min per mile or min per km)= minutes / distance
+        return this.GetLength() / GetDistance();
+    }
 }
 

@@ -23,7 +23,18 @@ public class CyclingActivity : Activity
     public override double CalculateDistance()
     {
         // Distance = Speed × Time
-        return GetSpeed() * this.GetLength();
+        return GetSpeed() * (this.GetLength() / 60.0);
+    }
+
+    public override double CalculateSpeed()
+    {
+        return GetSpeed();
+    }
+
+    public override double CalculatePace()
+    {
+        // Pace = 60 / speed
+        return 60 / GetSpeed();
     }
 }
 
