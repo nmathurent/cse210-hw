@@ -7,6 +7,9 @@ public class LectureEvent : Event
     private string _speakerName;
     private int _capacity;
     
+    public string GetEventType() {
+        return "Lecture";
+    }
     public string GetSpeakerName() {
         return _speakerName;
     }
@@ -36,13 +39,13 @@ public class LectureEvent : Event
     {
         DisplayStandardDetails();
         Console.WriteLine();
-        Console.WriteLine("Event type: Lecture");
+        Console.WriteLine($"Event type: {GetEventType()}");
         Console.WriteLine($"{this.GetMessage()}");
     }
 
     public void DisplayShortDescLecture()
     {
-        Console.WriteLine("\nEvent type: Lecture");
+        Console.WriteLine($"\nEvent type: {GetEventType() }");
         Console.WriteLine($"{GetTitleDate()}");
     }
 }
