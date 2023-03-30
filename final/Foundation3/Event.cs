@@ -1,6 +1,6 @@
-// Encapsulation with Online Ordering Program    Week 12
+// Inheritance with Event Planning Program    Week 13
 // Author : Nelson Mathurent
-// Date:    Mar 22, 2023
+// Date:    Mar 29, 2023
 
 public class Event
 {
@@ -40,6 +40,11 @@ public class Event
     public void SetAddress(Address address) {
         _address = address;
     }
+
+    public string GetTitleDate() {
+        return $"Title: {GetTitle()} Date: {GetDate()}";
+    }
+    
 // Constructor 
     public Event(string title, string description, string date, string time, Address address)
     {
@@ -48,6 +53,17 @@ public class Event
         SetDate(date);
         SetTime(time);
         SetAddress(address);
+    }
+
+    public void DisplayStandardDetails()
+    {
+        Console.WriteLine($"Event title:{GetTitle()} - {GetDescription()} - Date: {GetDate()} {GetTime()}");
+        Console.WriteLine($"{GetAddress().GetStringAddress()}");
+    }
+    public void DisplayShortDescription()
+    {
+        Console.WriteLine($"Event title:{GetTitle()} - {GetDescription()} - Date: {GetDate()} {GetTime()}");
+        Console.WriteLine($"{GetAddress().GetStringAddress()}");
     }
 
 }

@@ -1,6 +1,6 @@
-// Encapsulation with Online Ordering Program    Week 12
+// Inheritance with Event Planning Program    Week 13
 // Author : Nelson Mathurent
-// Date:    Mar 20, 2023
+// Date:    Mar 29, 2023
 
 public class Address
 {
@@ -44,8 +44,5 @@ public class Address
     public string GetStringAddress() {
         return $"{GetStreet()}\n{GetCity()}, {GetStateProvince()} \n{GetCountry()}";
     }
-    public Boolean LiveInUSA() {
-        return GetCountry() == "USA";
-    }
-}
+ }
 

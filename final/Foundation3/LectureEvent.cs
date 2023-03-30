@@ -1,6 +1,6 @@
-// Encapsulation with Online Ordering Program    Week 12
+// Inheritance with Event Planning Program    Week 13
 // Author : Nelson Mathurent
-// Date:    Mar 22, 2023
+// Date:    Mar 29, 2023
 
 public class LectureEvent : Event
 {
@@ -20,6 +20,10 @@ public class LectureEvent : Event
         _capacity = capacity;
     }
 
+    public string GetMessage() {
+        return $"Speaker: {GetSpeakerName()} - Capacity: {GetCapacityn()}";
+    }
+
 // Constructor 
     public LectureEvent(string title, string description, string date, string time, Address address, string speakerName, int capacity)
         : base(title, description, date, time, address)
@@ -28,5 +32,18 @@ public class LectureEvent : Event
         SetCapacity(capacity);
     }
 
+    public void DisplayFullDetailsLecture()
+    {
+        DisplayStandardDetails();
+        Console.WriteLine();
+        Console.WriteLine("Event type: Lecture");
+        Console.WriteLine($"{this.GetMessage()}");
+    }
+
+    public void DisplayShortDescLecture()
+    {
+        Console.WriteLine("\nEvent type: Lecture");
+        Console.WriteLine($"{GetTitleDate()}");
+    }
 }
 
