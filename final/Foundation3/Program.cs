@@ -37,5 +37,21 @@ class Program
         outdoorE.DisplayFullDetailsOutdoor();
         // Generating Short description marketing message
         outdoorE.DisplayShortDescOutdoor();
+
+        // Creating a Reception event
+        Address receptionAddress = new Address("7344 Washington Ave.", "Whittier", "CA", "90602");
+        ReceptionsEvent receptionE = new ReceptionsEvent("Whittier Reads 2023 Event",
+                                                "Reception and Dinner for Javier Zamora",
+                                                "04/27/2023",
+                                                "7:00 PM - 9:00 PM",
+                                                receptionAddress,
+                                                "javierZamorag@gmail.com");
+        
+        // Generating Standard marketing message
+        receptionE.DisplayStandardDetails();
+        // Generating Full details marketing message
+        receptionE.DisplayFullDetailsReceptions();
+        // Generating Short description marketing message
+        receptionE.DisplayShortDescReceptions();
     }
 }
